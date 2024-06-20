@@ -167,7 +167,7 @@ function Cryptop06() {
                 <div className="  self-stretch  flex flex-row flex-wrap  items-start justify-start  max-w-full lg:flex-wrap gap-[11rem]">
                     <div className=" flex flex-row  items-end justify-start gap-[1.188rem]  max-w-full lg:flex-1 mq450:flex-wrap mq750:min-w-full">
 
-                        <div className="z-0 flex flex-row items-start justify-start pt-[0rem] px-[0rem] pb-[3.438rem] box-border min-w-[430px] min-h-[352px] max-w-full p-1">
+                        <div className="z-0 flex flex-row items-start justify-start pt-[0rem] px-[0rem] pb-[3.438rem] box-border max-w-full p-1">
                             <div className="self-stretch flex flex-col items-start justify-start gap-[2.038rem] max-w-full">
                                 <h1 className=" p-1 m-[auto] text-[3.4rem] relative  tracking-[-2px] leading-[3.188rem] font-bold font-inherit flex items-center max-w-full box-border pr-[0rem] z-[4] mq450:text-[1.875rem] mq450:leading-[1.938rem] mq1050:text-[2.5rem] mq1050:leading-[2.563rem]">
                                     The right solution
@@ -243,7 +243,7 @@ function Cryptop06() {
                             </div>
                         </div>
                     </div>
-                    <div className=" z-0 flex-1 flex flex-row items-end justify-end gap-[1.188rem] min-w-[400px] max-w-full mq750:flex-wrap mq750:min-w-full p-2">
+                    <div className=" z-0 flex-1 flex flex-row items-end justify-end gap-[1.188rem] max-w-full mq750:flex-wrap mq750:min-w-full p-2">
                         <img
                             className="h-[280.7px] sm:h-[275px] flex-1 relative  overflow-hidden object-cover  z-[4] mq450:min-w-full"
                             loading="lazy"
