@@ -15,7 +15,7 @@ import Cryptop7 from '../components/Cryptop7'
 import Footer from '../components/Footer'
 function Home() {
     return (
-        <div className='landingpage h-[100vh]  bg-darkblue-100 ' style={{backgroundColor:"#2434b3"}}>
+        <div className='landingpage h-[100vh] bg-darkblue-100 ' style={{backgroundColor:"#2434b3"}}>
         
             <Navbar />
             <ScrollIndicator left="5%" right="auto" ballOffset="15" />
@@ -74,7 +74,7 @@ function Home() {
           </div> */}
 
 
-          <div className='homy gap-[5rem] h-[100vh] flex flex-row flex-wrap justify-between items-center px-[5.4%]'>
+          <div className='homy gap-[5rem] h-[100vh] flex flex-row flex-wrap justify-between items-center sm:px-[5.4%] px-[3%]'>
           <div className=" ">
                     <h1 className=" text-[5rem] tracking-[-3px] leading-[4.688rem] font-bold font-inherit text-white z-[6]  text-justify">
                         <p className="m-0">Crypto blockchain</p>
@@ -128,7 +128,7 @@ function Home() {
 </div>
 
 
-            <div className='flex relative sm:flex-row flex-col flex-wrap sm:mt-[0rem] mt-[15rem] justify-evenly px-[1.5rem]'>
+            <div className='flex relative item-center flex-row flex-wrap sm:mt-[0rem] mt-[15rem] justify-evenly'>
                 <div className='mb-8'>
                     <Cardpart2 name={"Use network to buy & sell shares"} />
                 </div>
@@ -143,7 +143,7 @@ function Home() {
             </div>
 
 
-            <div className=' bg-darkblue-100 sm:mt-[10rem] mt-[10rem] sm:px-[2rem] px-2'>
+            <div className=' bg-darkblue-100 sm:mt-[10rem] mt-[10rem] sm:px-[2rem] px-0'>
                 <Cryptop03 />
             </div>
 

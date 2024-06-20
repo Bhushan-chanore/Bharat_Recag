@@ -268,7 +268,7 @@ function Cryptop06() {
 <div className="z-0 py-[4rem] px-0 flex-1 flex flex-col items-start justify-center pt-[6.25rem] pb-[0rem] sm:pr-[1.563rem] pr-[0rem] pl-[0rem] box-border">
 
     <div className="  flex sm:flex-row flex-col items-start justify-evenly pt-[0rem]  pb-[1.175rem] box-border max-w-full gap-[3.25rem] lg:flex-wrap ">
-        <div className=" flex sm:flex-row flex-col items-start justify-start gap-[1.875rem] lg:flex-1 mq750:flex-wrap mq750:min-w-full pl-8">
+        <div className=" flex sm:flex-row flex-col items-start justify-start gap-[1.875rem] lg:flex-1 mq750:flex-wrap mq750:min-w-full sm:pl-8 pl-4">
             <div className="relative flex-1 rounded-10xs bg-slateblue flex flex-col items-start justify-start pt-[2rem] pb-[8.875rem] pr-[1.25rem] pl-[2.5rem] box-border gap-[0.313rem] max-w-[350px] w-[350px] min-h-[232px] hover:bg-white hover:text-slateblue">
                 <div className="relative tracking-[0.26px] leading-[1.5rem] text-[1rem] font-medium">
                     <span>{`$10,083.035 `}</span>
@@ -323,7 +323,7 @@ function Cryptop06() {
     </div>
     <div className=" flex sm:flex-row flex-col items-start justify-center pt-[0rem]  pb-[1.175rem] box-border max-w-full gap-[3.25rem] lg:flex-wrap ">
         <div className=" flex flex-col items-start justify-start pt-[1.181rem] px-[0rem] pb-[0rem] box-border  max-w-full lg:flex-1 mq750:min-w-full">
-            <div className="self-stretch flex sm:flex-row flex-col items-start justify-start gap-[1.875rem] mq750:flex-wrap pl-8">
+            <div className="self-stretch flex sm:flex-row flex-col items-start justify-start gap-[1.875rem] mq750:flex-wrap sm:pl-8 pl-4">
                 <div className="relative w-[350px] flex-1 rounded-10xs bg-slateblue flex flex-col items-start justify-start pt-[2rem] pb-[8.875rem] pr-[1.25rem] pl-[2.5rem] box-border gap-[0.313rem] max-w-[350px] min-h-[232px] hover:bg-white hover:text-slateblue">
                     <div className="relative tracking-[0.26px] leading-[1.5rem] text-[1rem] font-medium">
                         <span>{`$10,083.035 `}</span>
@@ -396,7 +396,7 @@ function Cryptop06() {
 
 
 
-    <div className=" p-[1rem] self-stretch flex mt-[10rem] sm:flex-row flex-col flex-wrap items-end justify-center gap-[2rem] max-w-full text-[1.688rem] text-white">
+    <div className=" p-[1rem] self-stretch flex mt-[10rem] sm:flex-row flex-col flex-wrap items-end justify-evenly gap-[2rem] max-w-full text-[1.688rem] text-white">
 
         {
             inputcluster.map((item) => (
@@ -437,7 +437,7 @@ function Cryptop06() {
 
             <section className="sm:pl-[5rem] pl-0 flex flex-row items-center justify-start sm:gap-[1.188rem] max-w-full m-auto text-center text-[3.75rem] text-white font-montserrat box-border bg-[url('https://innovio.qodeinteractive.com/wp-content/uploads/2018/10/h4-backround-img-1.png')] bg-cover bg-no-repeat bg-[top] h-[100vh]">
 
-                <div className="z-0 ml-[5rem] flex-1 flex flex-col w-[420px] items-start justify-center pt-0 px-0 pb-[1.563rem] box-border">
+                <div className="z-0 sm:ml-[5rem] ml-[2rem] flex-1 flex flex-col items-start justify-center pt-0 px-0 pb-[1.563rem] box-border">
 
                     <div>
                         <h1 className="text-[3.6rem] tracking-[-3px] leading-[4.688rem] font-bold font-inherit text-white z-[6] text-justify">

@@ -35,12 +35,12 @@ function Cryptop03() {
                   {/* Technology content */}
                   <div className="self-stretch flex flex-col sm:flex-row items-start justify-center gap-[3.094rem] max-w-full text-left text-[0.938rem] text-lightsteelblue mq1050:flex-wrap">
                     <img
-                      className="h-[411.3px] flex-1 relative max-w-full overflow-hidden object-cover sm:min-w-[622px] z-[2] mq750:min-w-full left-[1rem] sm:left-4"
+                      className="h-[411.3px] flex-1 relative max-w-full overflow-hidden object-cover sm:min-w-[622px] z-[2] mq750:min-w-full left-[0.5rem] sm:left-4"
                       loading="lazy"
                       alt=""
                       src={img2}
                     />
-                    <div className=" flex  flex-col items-start justify-start pt-[3.444rem] sm:pl-[3.5rem] pl-4 pb-[0rem] box-border">
+                    <div className=" flex  flex-col items-start justify-start pt-[3.444rem] sm:px-[3.5rem] px-0 pb-[0rem] box-border">
                       <div className="flex flex-col items-start justify-start gap-[2.063rem]">
                         <div className="flex flex-col items-start justify-start gap-[1.594rem] ">
                           <div className="relative leading-[1.5rem] font-medium z-[2] ">
@@ -100,7 +100,7 @@ function Cryptop03() {
 
                   <div className="self-stretch flex flex-col sm:flex-row items-start justify-center gap-[6.094rem] max-w-full text-left text-[0.938rem] text-lightsteelblue mq1050:flex-wrap">
                     <img
-                      className="h-[411.3px] flex-1 relative max-w-full overflow-hidden object-cover sm:min-w-[622px] z-[2] mq750:min-w-full left-[2rem] sm:left-0"
+                      className="h-[411.3px] flex-1 relative max-w-full overflow-hidden object-cover sm:min-w-[622px] z-[2] mq750:min-w-full left-[0.5rem] sm:left-0"
                       loading="lazy"
                       alt=""
                       src="https://innovio.qodeinteractive.com/wp-content/uploads/2018/12/h4-holder-tab-img-2.png"
@@ -165,7 +165,7 @@ function Cryptop03() {
 
                   <div className="self-stretch flex flex-col sm:flex-row items-start justify-center gap-[6.094rem] max-w-full text-left text-[0.938rem] text-lightsteelblue mq1050:flex-wrap">
                     <img
-                      className="h-[411.3px] flex-1 relative max-w-full overflow-hidden object-cover sm:min-w-[622px] z-[2] mq750:min-w-full left-[2rem] sm:left-0"
+                      className="h-[411.3px] flex-1 relative max-w-full overflow-hidden object-cover sm:min-w-[622px] z-[2] mq750:min-w-full left-[0.5rem] sm:left-0"
                       loading="lazy"
                       alt=""
                       src="https://innovio.qodeinteractive.com/wp-content/uploads/2018/12/h4-holder-tab-img-3.png"
@@ -229,7 +229,7 @@ function Cryptop03() {
                   {/* Web design content */}
                   <div className="self-stretch flex flex-col sm:flex-row items-start justify-center gap-[6.094rem] max-w-full text-left text-[0.938rem] text-lightsteelblue mq1050:flex-wrap">
                     <img
-                      className="h-[411.3px] flex-1 relative max-w-full overflow-hidden object-cover sm:min-w-[622px] z-[2] mq750:min-w-full left-[2rem] sm:left-0"
+                      className="h-[411.3px] flex-1 relative max-w-full overflow-hidden object-cover sm:min-w-[622px] z-[2] mq750:min-w-full left-[0.5rem] sm:left-0"
                       loading="lazy"
                       alt=""
                       src="https://innovio.qodeinteractive.com/wp-content/uploads/2018/12/h4-holder-tab-img-4.png"
