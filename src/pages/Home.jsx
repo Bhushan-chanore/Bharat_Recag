@@ -25,12 +25,12 @@ function Home() {
 
           
 
-            <div className='homy gap-[5rem] h-[100vh] flex flex-row flex-wrap justify-between items-center sm:mx-[5rem] mx-0'>
+            <div className="homy gap-[5rem] h-[100vh] flex flex-row flex-wrap justify-between  items-center sm:mx-[5rem] mx-0">
 
-            <div className='flex flex-col'>
+            <div className='flex flex-col '>
 
                 <div className="flex flex-col items-center sm:items-start">
-                    <h1 className="sm:text-[5rem] text-[3.5rem] tracking-[-3px] leading-[4.688rem] font-bold font-inherit text-white z-[6] text-center sm:text-justify w-[300px] sm:w-[600px] mx-auto sm:mx-0">
+                    <h1 className="sm:text-[5rem] text-[3.5rem] tracking-[-3px] leading-[4.688rem] font-bold font-inherit text-white z-[6] text-center sm:text-justify w-[320px] sm:w-[600px] mx-auto sm:mx-0">
                         <p className="m-0">Crypto blockchain revolution is here</p>
                     </h1>
 

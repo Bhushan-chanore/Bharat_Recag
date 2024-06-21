@@ -122,11 +122,9 @@ body{
 }
 
 
-/* @media  (min-width: 951px) {
+@media  (max-width: 600px) {
   .homy{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+   justify-content: center;
   }
 }
-  */
+ 
