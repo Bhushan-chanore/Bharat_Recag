@@ -400,7 +400,7 @@ function Cryptop06() {
 
 
 
-                    {/* <div className=" p-[1rem] self-stretch flex mt-[10rem] sm:flex-row flex-col flex-wrap items-end justify-evenly gap-[2rem] max-w-full text-[1.688rem] text-white">
+                    <div className=" self-stretch flex mt-[10rem] sm:flex-row flex-col flex-wrap items-end justify-evenly gap-[2rem] max-w-full text-[1.688rem] text-white">
 
                         {
                             inputcluster.map((item) => (
@@ -409,7 +409,7 @@ function Cryptop06() {
                         }
 
 
-                    </div> */}
+                    </div>
 
 
 </div>
