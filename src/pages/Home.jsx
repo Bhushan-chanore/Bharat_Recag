@@ -128,7 +128,7 @@ function Home() {
 </div>
 
 
-            <div className='flex relative item-center flex-row flex-wrap sm:mt-[0rem] mt-[15rem] justify-evenly'>
+            <div className='flex relative item-center flex-row flex-wrap sm:mt-[0rem] mt-[15rem] sm:justify-evenly justify-around'>
                 <div className='mb-8'>
                     <Cardpart2 name={"Use network to buy & sell shares"} />
                 </div>

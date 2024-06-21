@@ -13,7 +13,7 @@ function Footer() {
         <div className="mb-8">
           <div className="text-white">
             <p className="mb-4 text-[1.5rem]">Quick contact info</p>
-            <p className="w-[380px] text-[0.9rem] mb-4 opacity-80">Lorem ipsum dolor sit amet ut, consectetu adipisicing elit, sed do eiusmod tempor minim.</p>
+            <p className="sm:w-[380px] w-[320px] text-[0.9rem] mb-4 opacity-80">Lorem ipsum dolor sit amet ut, consectetu adipisicing elit, sed do eiusmod tempor minim.</p>
           </div>
           <div className="flex flex-col text-[0.899rem] opacity-80 mt-4">
             <a href="/" className="flex items-center text-white hover:text-gray-800 mt-2 md:mt-0 md:ml-2 mb-4">

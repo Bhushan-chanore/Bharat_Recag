@@ -16,7 +16,7 @@ function Cryptop03() {
         <div className="flex-1 flex flex-col items-start justify-center pt-[0.938rem] px-[0rem] pb-[0rem] box-border ">
           <div className="z-0 flex flex-col items-center justify-center py-[0rem] pr-[1.25rem] pl-[1rem] box-border gap-[2.688rem] max-w-full">
             <div className=" flex flex-row items-center justify-center py-[0rem] px-[1.25rem] box-border max-w-full">
-              <h1 className="m-0  relative sm:text-inherit text-[3rem] tracking-[-2.4px] leading-[4.05rem] font-bold font-inherit flex items-center justify-center shrink-0 z-[2] mq450:text-[2.25rem] mq450:leading-[2.438rem] mq1050:text-[3rem] mq1050:leading-[3.25rem] ">
+              <h1 className="m-0  relative sm:text-inherit sm:text-[3rem] text-[2.5rem] tracking-[-2.4px] leading-[4.05rem] font-bold font-inherit flex items-center justify-center shrink-0 z-[2] mq450:text-[2.25rem] mq450:leading-[2.438rem] mq1050:text-[3rem] mq1050:leading-[3.25rem] ">
                 The right solutions
               </h1>
             </div>
@@ -35,7 +35,7 @@ function Cryptop03() {
                   {/* Technology content */}
                   <div className="self-stretch flex flex-col sm:flex-row items-start justify-center gap-[3.094rem] max-w-full text-left text-[0.938rem] text-lightsteelblue mq1050:flex-wrap">
                     <img
-                      className="h-[411.3px] flex-1 relative max-w-full overflow-hidden object-cover sm:min-w-[622px] z-[2] mq750:min-w-full left-[0.5rem] sm:left-4"
+                      className="h-[411.3px] flex-1 relative max-w-full overflow-hidden object-cover sm:min-w-[622px] min-w[330px] z-[2] mq750:min-w-full left-[0.5rem] sm:left-4"
                       loading="lazy"
                       alt=""
                       src={img2}
@@ -44,7 +44,7 @@ function Cryptop03() {
                       <div className="flex flex-col items-start justify-start gap-[2.063rem]">
                         <div className="flex flex-col items-start justify-start gap-[1.594rem] ">
                           <div className="relative leading-[1.5rem] font-medium z-[2] ">
-                            <p className="m-0 pb-9 ml-[2rem]">
+                            <p className="m-0 pb-9 sm:mx-[2rem] mx-[0.8rem]">
                             This setup will create a React component (MovingImage) that displays an image moving up and down within a container. Adjust the CSS and animation properties as needed to customize the behavior and appearance of the moving image.
                             </p>
                             

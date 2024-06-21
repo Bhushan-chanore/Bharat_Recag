@@ -4,7 +4,7 @@ function Cardpart2(data) {
     const {name} = data;
     return (
         <div>
-            <div className=' relative flex flex-row flex-wrap sm:w-[360px] w-[380px] bg-slateblue hover:bg-white hover:text-black text-white   rounded-[5px] py-[1.875rem] pr-[2.469rem] pl-[2.5rem]'>
+            <div className=' relative flex flex-row flex-wrap sm:w-[400px] w-[320px] bg-slateblue hover:bg-white hover:text-black text-white   rounded-[5px] py-[1.875rem] pr-[2.469rem] pl-[2.5rem]'>
                 <div className="flex flex-col items-start justify-start gap-[0.319rem]">
                     <div className="relative tracking-[0.26px] leading-[1.5rem] font-medium shrink-0 text-royalblue-100 [debug_commit:f6aba90]">
                         Explore the Features
