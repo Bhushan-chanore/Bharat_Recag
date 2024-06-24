@@ -20,7 +20,14 @@ a{
     display:flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
+@media screen and (max-width:500px){
+    .discussion-details{
+        justify-content: center;
+    }
+}
+
 .discussion-content{
     display: flex;
     flex-direction: column;
@@ -240,8 +247,13 @@ div.learn-desc{
 
 section.discussion{
     overflow:hidden;
-    padding:0.4rem 1rem;
+    padding:1rem 2.5rem;
     position:relative;
+}
+@media screen and (max-width:500px){
+    section.discussion{
+        padding: 0.4rem;
+    }
 }
 .discussion-section{
     max-width: 122rem;
@@ -515,9 +527,6 @@ margin-top: 30px;
     padding: 10px;
 }
 @media screen and (max-width:780px){
-    .datasets-image{
-        display:none;
-    }
     .user-topics{
         display: none;
     }

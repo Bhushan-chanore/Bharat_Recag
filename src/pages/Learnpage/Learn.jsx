@@ -27,7 +27,8 @@ import { ListView } from "../ListView";
 import { GridView } from "../GridView";
 import { GridView2 } from "../Gridview2";
 import profile4 from "../image/fakers/profile-4.jpg";
-
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import "../css/vendors/tippy.css";
 import "../css/vendors/litepicker.css";
 import "../css/vendors/tiny-slider.css";
@@ -316,6 +317,8 @@ export default function Learn() {
   const deactivateSearchBar = () => {
     setSearchBarActive(false);
   };
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <div>
@@ -330,7 +333,7 @@ export default function Learn() {
             width: "100vw",
             backgroundColor: "#ffffff",
             borderRadius: "30px",
-            padding: "1rem 2rem",
+            
           }}
         >
           <div className="container">
@@ -338,7 +341,7 @@ export default function Learn() {
               <div className="top-section">
                 {/* <!-- BEGIN: Top Bar --> */}
                 <div
-                  className="relative flex h-[67px] items-center border-b border-slate-200"
+                  className="relative sm:flex hidden h-[67px] items-center border-b border-slate-200"
                   style={{ marginTop: "-47px", zIndex: 0 }}
                 >
                   <div
@@ -442,8 +445,8 @@ export default function Learn() {
                               display: "flex",
                               flexDirection: "column",
                               alignItems: "center",
-                              width: "60%",
-                              marginLeft: "15rem",
+                              width: isMobile ? "96%" : "60%",
+                              marginLeft: isMobile ? 0 : "15rem",
                               maxHeight: '90vh',
                               maxWidth: "1100px",
                               borderRadius: "10px",
