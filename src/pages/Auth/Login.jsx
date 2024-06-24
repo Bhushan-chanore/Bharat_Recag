@@ -32,7 +32,7 @@ const Login = ({ isOpen, onRequestClose, openSignup }) => {
         >
 
           <div className="max-w-screen-md w-full bg-white shadow-lg rounded-lg flex flex-col lg:flex-row overflow-hidden bg-opacity-50">
-            <div className="lg:w-1/2 xl:w-5/12  w-[26rem] p-6 sm:p-10 flex flex-col items-center">
+            <div className="lg:w-1/2 xl:w-5/12  w-[24rem] p-6 sm:p-10 flex flex-col items-center">
               {/* <img
             src={logo}
             className="w-20 lg:w-24 mb-4 animate-bounce"

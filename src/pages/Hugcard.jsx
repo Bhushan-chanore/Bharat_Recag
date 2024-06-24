@@ -14,25 +14,25 @@ function Hugcard() {
                     <h2 className='mt-1 ml-3' style={{ fontSize: "16px" }}>microsoft/orca-math-word-problems-200k</h2>
                 </div>
 
-                <div className='flex p-1' style={{color:"rgb(156 163 175)" , fontSize:"14px"}}>
+                <div className='flex flex-wrap justify-between p-1' style={{color:"rgb(156 163 175)" , fontSize:"14px"}}>
                     <div className='flex pl-2'>
                        <Eye size={20}/> 
                        <h3 className=' ml-1'>Viewer</h3>
-                       <Dot />
                     </div>
 
                     <div className='flex pl-1'>
+                    <Dot />
                        <h3 className=''>Updated 7 days ago</h3>
-                       <Dot />
                     </div>
 
                     <div className='flex pl-1'>
+                    <Dot />
                        <Download size={20}/> 
                        <h3 className='ml-1'>1.78k</h3>
-                       <Dot />
                     </div>
 
                     <div className='flex pl-1'>
+                       <Dot />
                        <Heart size={20}/> 
                        <h3 className='ml-1'>1.78k</h3>
                     </div>

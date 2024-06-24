@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./Datasets.css";
 import { MdOutlineInsights } from "react-icons/md";
-// import { GoTag } from "react-icons/go";
 import img1 from "../../assets/dataset-img1.svg";
 import img2 from "../../assets/dataset-img2.jpg";
 import img3 from "../../assets/dataset-img3.png";
@@ -11,10 +10,8 @@ import img6 from "../../assets/exercisedataset-img1.png";
 import img7 from "../../assets/exercisedataset-img2.jpg";
 import img8 from "../../assets/exercisedataset-img4.jpeg";
 
-import { Buttons } from "../Buttons";
-import { FilterSearchBar } from "../FilterSearchBar";
+
 import { Cards } from "../Cards";
-// import { AppContext } from '../context/context';
 import profile4 from "../image/fakers/profile-4.jpg";
 
 import "../css/vendors/tippy.css";
@@ -26,21 +23,14 @@ import "../css/vendors/simplebar.css";
 import "../css/components/mobile-menu.css";
 import Mobilemenu from "../Dashboard/Mobilemenu";
 import Simplemenu from "../Dashboard/Simplemenu";
-import { ArrowDownNarrowWide, BellRing, Search } from "lucide-react";
+import { BellRing } from "lucide-react";
 import Hugcard from "../Hugcard";
 import { FaPlus } from "react-icons/fa";
-import SearchPopup from "../../components/search-popup.component";
 import NotificationPopup from "../../components/notification-popup.component";
 import ProfilePopup from "../../components/profile-popup.component";
 
 export default function Datasets() {
-  const [buttonStates, setButtonStates] = useState({});
-  const handle = (itemId) => {
-    setButtonStates((prevState) => ({
-      ...prevState,
-      [itemId]: !prevState[itemId] || false,
-    }));
-  };
+  
 
   const data = [
     {
@@ -199,13 +189,6 @@ export default function Datasets() {
     setIsOpen(!isOpen);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Your form submission logic here
-    console.log("Form submitted!");
-    toggleModal();
-  };
-
 
   const toggleNotificationPopup = () => {
     closeOtherPopups();
@@ -263,7 +246,7 @@ export default function Datasets() {
               <div className="top-section">
                 {/* <!-- BEGIN: Top Bar --> */}
                 <div
-                  className="relative flex h-[67px] items-center border-b border-slate-200"
+                  className="relative  h-[67px] items-center border-b border-slate-200  sm:flex  hidden "
                   style={{ marginTop: "-37px", zIndex: 0 }}
                 >
                   <div
@@ -502,92 +485,94 @@ export default function Datasets() {
           </div>
 
           <div className="container p-4">
-            <div className="outer-section flex mb-[3rem]">
-              <form className="max-w-lg ml-auto">
-                <div className="flex items-center">
-                  {/* Dropdown Button */}
-                  <div className="relative inline-block text-left">
-                    <button
-                      type="button"
-                      className="flex z-10 items-center rounded-tl-[20px] rounded-bl-[20px] justify-center py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300"
-                      onClick={toggleDropdown}
-                    >
-                      {selectedCategory || "All categories"}
-                      <svg
-                        className="w-2.5 h-2.5 ml-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 10 6"
-                      >
-                        <path
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="m1 1 4 4 4-4"
-                        />
-                      </svg>
-                    </button>
-                    {/* Dropdown Content */}
-                    {isDropdownOpen && (
-                      <div className="absolute z-10 mt-1 w-44 bg-[#ffffff] divide-y divide-gray-100 rounded-b-lg shadow-lg dark:bg-gray-700 transition-opacity duration-300 opacity-100">
-                        <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
-                          {data.map((item) => (
-                            <li key={item.id}>
-                              <button
-                                type="button"
-                                className="w-full px-4 py-2 text-left hover:bg-[#e2e8f0] dark:hover:bg-gray-600 dark:hover:text-white"
-                                onClick={() => handleCategoryClick(item.title)}
-                              >
-                                {item.title}
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                  {/* Search Input */}
-                  <div className="relative flex-grow">
-                    <input
-                      type="search"
-                      className={`block py-2.5 pl-3 pr-16 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-tr-[20px] rounded-br-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${
-                        isSearchBarActive ? "w-[21rem]" : "w-[18rem]"
-                      }`}
-                      placeholder="Search for Datasets here..."
-                      onFocus={activateSearchBar}
-                      onBlur={deactivateSearchBar}
-                      value={inputValue}
-                      onChange={(e) => setInputValue(e.target.value)} 
-                      required
-                    />
+          <div className="outer-section flex mb-12">
+  <form className="w-full max-w-lg ml-auto sm:px-4 px-0 md:px-0">
+    <div className="flex flex-row items-center">
+      {/* Dropdown Button */}
+      <div className="relative inline-block text-left mt-2 mb-2 md:mb-0">
+        <button
+          type="button"
+          className="flex z-10 items-center justify-center h-full py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg md:rounded-tl-[20px] md:rounded-bl-[20px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300 w-full md:w-auto"
+          onClick={toggleDropdown}
+        >
+ {selectedCategory ? selectedCategory.slice(0, 10) : "All categories"}  
+          <svg
+            className="w-2.5 h-2.5 ml-1"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m1 1 4 4 4-4"
+            />
+          </svg>
+        </button>
+        {/* Dropdown Content */}
+        {isDropdownOpen && (
+          <div className="absolute z-10 mt-1 w-44 bg-white divide-y divide-gray-100 rounded-b-lg shadow-lg dark:bg-gray-700 transition-opacity duration-300 opacity-100">
+            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+              {data.map((item) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    className="w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={() => handleCategoryClick(item.title)}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      {/* Search Input */}
+      <div className="relative flex-grow">
+        <input
+          type="search"
+          className={`block w-full md:w-[18rem] lg:w-[21rem] h-full py-2.5 pl-3 pr-12 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${
+            isSearchBarActive ? "w-full md:w-[21rem]" : "w-full md:w-[18rem]"
+          }`}
+          placeholder="Search for Datasets here..."
+          onFocus={activateSearchBar}
+          onBlur={deactivateSearchBar}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)} 
+          required
+        />
 
-                    <button
-                      type="submit"
-                      className="absolute top-0 right-0 flex items-center justify-center w-12 h-full text-white bg-blue-700 rounded-tr-[20px] rounded-br-[20px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300"
-                    >
-                      <svg
-                        className="w-5 h-5"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                        />
-                      </svg>
-                      <span className="sr-only">Search</span>
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
+        <button
+          type="submit"
+          className="absolute top-0 right-0 flex items-center justify-center w-10 md:w-12 h-full text-white bg-blue-700 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300"
+        >
+          <svg
+            className="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 20 20"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+            />
+          </svg>
+          <span className="sr-only">Search</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
 
             <div className="trending-section">
               <div className="top-trending">

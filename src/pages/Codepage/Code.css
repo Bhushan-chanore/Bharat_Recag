@@ -13,8 +13,14 @@
 }
 section.code{
     overflow:hidden;
-    padding:0.4rem 1rem;
+    padding:1rem 2.5rem;
     position:relative;
+}
+@media  (max-width:500px) {
+    section.code{
+        padding:0.4rem;
+    } 
+    
 }
 .code-section{
     max-width: 122rem;
@@ -25,6 +31,12 @@ section.code{
     display:flex;
     justify-content: space-between;
     align-items: center;
+}
+@media screen and (max-width:500px) {
+    .code-details{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 .code-content{
     display: flex;
@@ -493,9 +505,7 @@ figure>img{
     }
 }
 @media screen and (max-width:840px) {
-    .code-details .code-image{
-        display: none;
-    }
+   
      div.container{
         padding:1rem 0.2rem;
     }

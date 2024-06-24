@@ -135,7 +135,7 @@ function Cryptop06() {
                         <h1 className="m-0 sm:w-[648px] relative text-inherit tracking-[-2.4px] leading-[4.05rem] font-bold font-inherit flex items-center justify-center shrink-0 z-[2] mq450:text-[2.25rem] mq450:leading-[2.438rem] mq1050:text-[3.5rem] mq1050:leading-[3.25rem]   ">
                             Meet the professionals
                         </h1>
-                        <p className="text-[1.2rem] sm:w-[648px] flex py-4 flex-row">Praesent hendrerit, mi facilisis eleifend lobortis mi est hendrerit fringillaibus lorem, nonfringilla dui enim et ante eleiz.</p>
+                        <p className="text-[1.2rem] sm:w-[648px] flex py-4 px-2 flex-row">Praesent hendrerit, mi facilisis eleifend lobortis mi est hendrerit fringillaibus lorem, nonfringilla dui enim et ante eleiz.</p>
                     </div>
 
                     <div className='mt-4 flex flex-row flex-wrap gap-[1.91rem] justify-evenly'>
@@ -400,7 +400,7 @@ function Cryptop06() {
 
 
 
-                    <div className=" self-stretch flex mt-[10rem] sm:flex-row flex-col flex-wrap items-end justify-evenly gap-[2rem] max-w-full text-[1.688rem] text-white">
+                    <div className=" self-stretch flex mt-[10rem] sm:flex-row flex-col flex-wrap items-end justify-evenly gap-[2rem] max-w-full text-[1.688rem] text-white px-2">
 
                         {
                             inputcluster.map((item) => (
