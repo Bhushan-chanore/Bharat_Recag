@@ -537,9 +537,7 @@ figure>img{
     } */
 }
 @media screen and (max-width:840px) {
-    .dataset-details .datasets-image{
-        display: none;
-    }
+
     div.container{
         padding:1rem 0.2rem;
     }

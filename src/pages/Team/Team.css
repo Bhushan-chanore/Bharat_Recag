@@ -12,14 +12,20 @@
   
 section.team-section{
     overflow:hidden;
-    padding:0.4rem 1rem;
+    padding:2rem 2rem;
     position:relative;
+}
+
+@media screen and (max-width:500px) {
+    section.team-section{
+padding:2rem 0.4rem ;
+    }
 }
 .team-container{
     max-width: 100rem;
     width: 100%;
     margin: 0 auto;
-    padding: 0 0.5rem;
+   
 }
 .team-contents{
     display:flex;
@@ -118,9 +124,7 @@ section.team-section{
         min-width:3rem;
         min-height: 3rem;
     }
-    section.team-section{
-        padding:0.4rem 0.2rem;
-    }
+    
 }
 @media screen and (max-width:380px){
     .member * img{

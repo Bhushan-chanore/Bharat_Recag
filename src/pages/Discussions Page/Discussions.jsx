@@ -322,7 +322,7 @@ export default function Discussions() {
                 <div className="discussion-details">
                   <div className="discussion-content">
                     <h1 className="main-title">Discussions</h1>
-                    <p className="discussion-para">
+                    <p className="discussion-para sm:w-[350px] w-full">
                       Discuss the Recag platform & machine learning topics -
                       this includes sharing feedback, asking questions, and
                       more.

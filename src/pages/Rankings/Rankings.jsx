@@ -297,14 +297,14 @@ export default function Rankings() {
             borderRadius: "30px",
             zIndex: "0",
             paddingBottom: "3rem",
-            padding: "10px 16px",
+
           }}
         >
           <div className="rank-container">
             <div className="rank-content">
               {/* <!-- BEGIN: Top Bar --> */}
               <div
-                className="relative z-[51] flex h-[67px] items-center border-b border-slate-200"
+                className="relative z-[51] sm:flex hidden h-[67px] items-center border-b border-slate-200"
                 style={{ marginTop: "-17px" }}
               >
                 <div
@@ -395,18 +395,17 @@ export default function Rankings() {
                 </div>
 
                 {/* search with category */}
-                <div className="outer-sectiony flex">
-                  <form className="max-w-lg ml-auto">
-                    <div className="flex items-center">
-                      {/* Dropdown Button */}
-
+                <div className="outer-section flex sm:py-0 py-4">
+                  <form className="w-full max-w-lg ml-auto sm:px-4 px-0 md:px-0">
+                    <div className="flex flex-row items-center">
+                     
                       {/* Search Input */}
                       <div className="relative flex-grow">
                         <input
                           type="search"
-                          className={`block py-2.5 pl-3 pr-16 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${isSearchBarActive ? "w-[21rem]" : "w-[18rem]"
+                          className={`block w-full md:w-[10rem] lg:w-[5rem] h-full py-2.5 pl-3 pr-12 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${isSearchBarActive ? "w-full md:w-[21rem]" : "w-full md:w-[18rem]"
                             }`}
-                          placeholder="Search for Ranking here..."
+                          placeholder="Search here..."
                           onFocus={activateSearchBar}
                           onBlur={deactivateSearchBar}
                           value={inputValue}
@@ -416,7 +415,7 @@ export default function Rankings() {
 
                         <button
                           type="submit"
-                          className="absolute top-0 right-0 flex items-center justify-center w-12 h-full text-white bg-blue-700 rounded-tr-[20px] rounded-br-[20px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300"
+                          className="absolute top-0 right-0 flex items-center justify-center w-10 md:w-12 h-full text-white bg-blue-700 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300"
                         >
                           <svg
                             className="w-5 h-5"

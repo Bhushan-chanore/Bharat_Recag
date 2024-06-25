@@ -25,9 +25,10 @@ a{
 
 .host-section{
      overflow:hidden;
-    padding:0.4rem 1rem;
+    padding:2rem;
     position:relative;
 }
+
 .host-container{
     width: 100%;
     max-width: 122rem;
@@ -239,6 +240,12 @@ p.third-sec{
     font-weight: 500;
     opacity: 0.8;
 }
+
+@media screen and (max-width:500px) {
+p.third-sec{
+    width: 20rem;
+}
+}
 h5.third-sec{
     padding: 0.8rem 0;
     font-size:var(--font-size-para);
@@ -297,6 +304,7 @@ div.row>img{
     align-items: center;
     text-align: center;
 }
+
 .community-sec>img,.featured-sec>img,.research-sec>img{
     width: 4rem;
     height: 4rem;
@@ -620,7 +628,7 @@ div.top-comp.points{
         height:1.5rem;
      }
     .host-section{
-        padding:0.3rem;
+        padding:2rem 0.4rem;
     }
     .button-title{
         font-size: var(--font-size-option);

@@ -170,12 +170,12 @@ export default function Blog() {
             width: "100vw",
             backgroundColor: "#ffffff",
             borderRadius: "30px",
-            padding: "2rem 0",
+            padding: "2rem 0.4rem",
           }}
         >
           {/* <!-- BEGIN: Top Bar --> */}
           <div
-            className="relative z-[51] flex h-[67px] px-6 items-center border-b border-slate-200"
+            className="relative z-[51] sm:flex hidden h-[67px] px-6 items-center border-b border-slate-200"
             style={{ marginTop: "-30px" }}
           >
             <div

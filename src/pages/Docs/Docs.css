@@ -13,11 +13,16 @@ a{
 }
 .docs-section{
     overflow:hidden;
-    padding:0.4rem 1rem;
+    padding: 2rem 2rem;
     position: relative;
     display: flex;
     flex-flow: column;
     font-weight: 400;
+}
+@media screen and (max-width:500px) {
+    .docs-section{
+        padding: 0.4rem;
+    }
 }
 .docs-heading{
     font-size: var(--font-size-one);

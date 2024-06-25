@@ -385,6 +385,7 @@ a{
     }
 }
 
+
 @media screen and (max-width:630px) {
     .caption-data > .title , .date{
         font-size: 1rem;
@@ -453,6 +454,17 @@ a{
 
 
 
+@media screen and (max-width:500px) {
+    .blog-list{
+        height: 27rem;
+    }
+    .bloglist-image{
+        height: 10rem;
+    }
+    a.bloglist{
+        height: 26rem;
+    }
+}
 
 
 

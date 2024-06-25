@@ -10,8 +10,14 @@
 
 section.ranking{
     overflow:hidden;
-    padding:0.4rem 1rem;
+    padding:0.4rem 2rem;
     position:relative;
+}
+@media screen and (max-width:500px){
+    section.ranking{
+        padding: 0.4rem;
+    }
+    
 }
 .rank-container{
     max-width: 100rem;
