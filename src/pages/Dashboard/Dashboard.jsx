@@ -115,7 +115,7 @@ function Dashboard() {
           }}
         >
           {/* <!-- BEGIN: Top Bar --> */}
-          <div className="relative z-[51] flex h-[67px] items-center border-b border-slate-200">
+          <div className="relative z-[51] sm:flex hidden h-[67px] items-center border-b border-slate-200">
             <Breadcrumb />
 
             {/* <!-- BEGIN: Search --> */}
