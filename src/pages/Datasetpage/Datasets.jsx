@@ -490,29 +490,30 @@ export default function Datasets() {
     <div className="flex flex-row items-center">
       {/* Dropdown Button */}
       <div className="relative inline-block text-left mt-2 mb-2 md:mb-0">
-        <button
-          type="button"
-          className="flex z-10 items-center justify-center h-full py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg md:rounded-tl-[20px] md:rounded-bl-[20px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300 w-full md:w-auto"
-          onClick={toggleDropdown}
-        style={{borderRadius:"25px 0 0 25px"}}>
- {selectedCategory ? selectedCategory.slice(0, 10) : "All dataset"}  
-          <svg
-            className="w-2.5 h-2.5 ml-1"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m1 1 4 4 4-4"
-            />
-          </svg>
-        </button>
-        {/* Dropdown Content */}
+      <button
+  type="button"
+  className="flex z-10 items-center justify-center h-full py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg md:rounded-tl-[20px] md:rounded-bl-[20px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300 w-full md:w-auto"
+  onClick={toggleDropdown}
+  style={{ borderRadius: "25px 0 0 25px", whiteSpace: "nowrap", overflowX: "auto" }}
+>
+  {selectedCategory ? selectedCategory.slice(0,8)+ " .." : "Select"}  
+  <svg
+    className="w-2.5 h-2.5 ml-1"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 10 6"
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="m1 1 4 4 4-4"
+    />
+  </svg>
+</button>
+{/* Dropdown Content */}
         {isDropdownOpen && (
           <div className="absolute z-10 mt-1 w-44 bg-white divide-y divide-gray-100 rounded-b-lg shadow-lg dark:bg-gray-700 transition-opacity duration-300 opacity-100">
             <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">

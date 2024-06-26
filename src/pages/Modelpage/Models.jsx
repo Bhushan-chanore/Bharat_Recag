@@ -457,10 +457,10 @@ export default function Models() {
         <button
           type="button"
           className="flex z-10 items-center justify-center h-full py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg md:rounded-tl-[20px] md:rounded-bl-[20px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300 w-full md:w-auto"
-          style={{borderRadius:"25px 0 0 25px"}}
+          style={{borderRadius:"25px 0 0 25px", whiteSpace: "nowrap", overflowX: "auto"}}
           onClick={toggleDropdown}
         >
-          {selectedCategory ? selectedCategory.slice(0, 10) : "All Models"}  
+          {selectedCategory ? selectedCategory.slice(0, 8) + " .." : "Select"}  
           <svg
             className="w-2.5 h-2.5 ml-1"
             aria-hidden="true"

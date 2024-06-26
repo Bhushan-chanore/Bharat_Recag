@@ -58,7 +58,7 @@ const Signup = ({ isOpen, onRequestClose, openLogin}) => {
           style={{ backgroundColor: "rgb(36, 52, 179)" }}
         >
           <div className="max-w-screen-md w-full bg-white shadow-lg rounded-lg flex flex-col lg:flex-row overflow-hidden">
-            <div className="lg:w-1/2 xl:w-5/12 w-[26rem] p-6 sm:p-10 flex flex-col items-center">
+            <div className="lg:w-1/2 xl:w-5/12 w-[20rem] p-6 sm:p-10 flex flex-col items-center">
               <h1 className="text-4xl xl:text-6xl font-extrabold">
                 Sign Up
               </h1>

@@ -306,8 +306,8 @@ export default function Host() {
           type="button"
           className="flex z-10 items-center justify-center h-full py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg md:rounded-tl-[20px] md:rounded-bl-[20px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300 w-full md:w-auto"
           onClick={toggleDropdown}
-        style={{borderRadius:"25px 0 0 25px"}}>
- {selectedCategory ? selectedCategory.slice(0, 10) : "NlP"}  
+        style={{borderRadius:"25px 0 0 25px", whiteSpace: "nowrap", overflowX: "auto"}}>
+ {selectedCategory ? selectedCategory.slice(0, 6) + " .." : "Select"}  
           <svg
             className="w-2.5 h-2.5 ml-1"
             aria-hidden="true"
