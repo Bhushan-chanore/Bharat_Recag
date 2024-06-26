@@ -22,7 +22,13 @@ a{
     margin: 0.9rem 0 0;
     line-height: 2.5rem;
 }
-
+@media screen and (max-width:500px) {
+    .main-titl{
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+}
 .host-section{
      overflow:hidden;
     padding:2rem;

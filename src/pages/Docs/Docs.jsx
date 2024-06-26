@@ -23,6 +23,52 @@ export default function Docs() {
     setIsOpen(!isOpen);
   };
 
+  const data = [
+    {
+      id: 1,
+      title: "All notebooks",
+    },
+    {
+      id: 2,
+      title: "Recently Viewed",
+    },
+    {
+      id: 3,
+      title: "Python",
+    },
+    {
+      id: 4,
+      title: "R",
+    },
+    {
+      id: 5,
+      title: "Beginner",
+    },
+    {
+      id: 6,
+      title: "NLP",
+    },
+    {
+      id: 7,
+      title: "Random Forest",
+    },
+    {
+      id: 8,
+      title: "GPU",
+    },
+    {
+      id: 9,
+      title: "TPU",
+    },
+    {
+      id: 10,
+      title: "Competition notebook",
+    },
+    {
+      id: 11,
+      title: "Scheduled notebook",
+    },
+  ];
  
   const paper = [
     {
@@ -109,12 +155,23 @@ export default function Docs() {
 
 
   // search bar with category containt
-
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const [isSearchBarActive, setSearchBarActive] = useState(false);
 
 
-  
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    setDropdownOpen(false);
+    setInputValue(category);
+    // Trigger search
+    console.log(`Search started for category: ${category}`);
+  };
 
   const activateSearchBar = () => {
     setSearchBarActive(true);
@@ -123,6 +180,7 @@ export default function Docs() {
   const deactivateSearchBar = () => {
     setSearchBarActive(false);
   };
+
 
 
   return (
@@ -376,20 +434,62 @@ export default function Docs() {
             </div>
 
              {/* search with category */}
-             <div className="outer-section flex mb-[3rem]">
-              <form className="w-full max-w-lg ml-auto">
-                <div className="items-center">
-                  {/* Dropdown Button */}
-                 
-                  {/* Search Input */}
-                  <div className="relative flex-grow">
+             <div className="outer-section flex mb-12">
+  <form className="w-full max-w-lg ml-auto sm:px-4 px-0 md:px-0">
+    <div className="flex flex-row items-center">
+      {/* Dropdown Button */}
+      <div className="relative inline-block text-left mt-2 mb-2 md:mb-0">
+        <button
+          type="button"
+          className="flex z-10 items-center justify-center h-full py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg md:rounded-tl-[20px] md:rounded-bl-[20px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300 w-full md:w-auto"
+          onClick={toggleDropdown}
+        style={{borderRadius:"25px 0 0 25px"}}>
+ {selectedCategory ? selectedCategory.slice(0, 10) : "All paper"}  
+          <svg
+            className="w-2.5 h-2.5 ml-1"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m1 1 4 4 4-4"
+            />
+          </svg>
+        </button>
+        {/* Dropdown Content */}
+        {isDropdownOpen && (
+          <div className="absolute z-10 mt-1 w-44 bg-white divide-y divide-gray-100 rounded-b-lg shadow-lg dark:bg-gray-700 transition-opacity duration-300 opacity-100">
+            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+              {data.map((item) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    className="w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={() => handleCategoryClick(item.title)}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      {/* Search Input */}
+      <div className="relative flex-grow">
         <input
           type="search"
+
           className={`block w-full md:w-[18rem] lg:w-[21rem] h-full py-2.5 pl-3 pr-12 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${
             isSearchBarActive ? "w-full md:w-[21rem]" : "w-full md:w-[18rem]"
           }`}
-          style={{borderRadius:"25px 25px 25px 25px"}}
           placeholder="Search here..."
+          style={{borderRadius:"0 25px 25px 0"}}
           onFocus={activateSearchBar}
           onBlur={deactivateSearchBar}
           value={inputValue}
@@ -420,10 +520,9 @@ export default function Docs() {
           <span className="sr-only">Search</span>
         </button>
       </div>
-                </div>
-              </form>
-            </div> 
-
+    </div>
+  </form>
+</div>
             <div className="docs-content">
               {paper.map((item) => (
                 <div key={item.id}>

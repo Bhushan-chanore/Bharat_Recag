@@ -60,6 +60,8 @@ const steps = [
 ];
 
 export default function Learn() {
+
+
   const { gridView, setGridView, setGridView2, gridView2 } =
     useContext(AppContext);
 
@@ -101,6 +103,81 @@ export default function Learn() {
         return <Basicstep1 handleclick={handleclick} />;
     }
   };
+
+  const data = [
+    {
+      id: 1,
+      title: "All notebooks",
+    },
+    {
+      id: 2,
+      title: "Recently Viewed",
+    },
+    {
+      id: 3,
+      title: "Python",
+    },
+    {
+      id: 4,
+      title: "R",
+    },
+    {
+      id: 5,
+      title: "Beginner",
+    },
+    {
+      id: 6,
+      title: "NLP",
+    },
+    {
+      id: 7,
+      title: "Random Forest",
+    },
+    {
+      id: 8,
+      title: "GPU",
+    },
+    {
+      id: 9,
+      title: "TPU",
+    },
+    {
+      id: 10,
+      title: "Competition notebook",
+    },
+    {
+      id: 11,
+      title: "Scheduled notebook",
+    },
+  ];
+
+  // search bar with category containt
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [inputValue, setInputValue] = useState("");
+  const [isSearchBarActive, setSearchBarActive] = useState(false);
+
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    setDropdownOpen(false);
+    setInputValue(category);
+    // Trigger search
+    console.log(`Search started for category: ${category}`);
+  };
+
+  const activateSearchBar = () => {
+    setSearchBarActive(true);
+  };
+
+  const deactivateSearchBar = () => {
+    setSearchBarActive(false);
+  };
+
   const learnData = [
     {
       id: 1,
@@ -306,17 +383,7 @@ export default function Learn() {
 
 
   // search bar with category containt
-  const [inputValue, setInputValue] = useState("");
-  const [isSearchBarActive, setSearchBarActive] = useState(false);
  
-
-  const activateSearchBar = () => {
-    setSearchBarActive(true);
-  };
-
-  const deactivateSearchBar = () => {
-    setSearchBarActive(false);
-  };
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -524,50 +591,95 @@ export default function Learn() {
             <div className="trending-section">
 
               {/* search with category */}
-              <div className="outer-section flex mb-[3rem]">
-                <form className="max-w-lg ml-auto">
-                  <div className="flex items-center">
-                    {/* Dropdown Button */}
+              <div className="outer-section flex mb-12">
+  <form className="w-full max-w-lg ml-auto sm:px-4 px-0 md:px-0">
+    <div className="flex flex-row items-center">
+      {/* Dropdown Button */}
+      <div className="relative inline-block text-left mt-2 mb-2 md:mb-0">
+        <button
+          type="button"
+          className="flex z-10 items-center justify-center h-full py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg md:rounded-tl-[20px] md:rounded-bl-[20px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300 w-full md:w-auto"
+          onClick={toggleDropdown}
+        style={{borderRadius:"25px 0 0 25px"}}>
+ {selectedCategory ? selectedCategory.slice(0, 10) : "courses"}  
+          <svg
+            className="w-2.5 h-2.5 ml-1"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m1 1 4 4 4-4"
+            />
+          </svg>
+        </button>
+        {/* Dropdown Content */}
+        {isDropdownOpen && (
+          <div className="absolute z-10 mt-1 w-44 bg-white divide-y divide-gray-100 rounded-b-lg shadow-lg dark:bg-gray-700 transition-opacity duration-300 opacity-100">
+            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+              {data.map((item) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    className="w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={() => handleCategoryClick(item.title)}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      {/* Search Input */}
+      <div className="relative flex-grow">
+        <input
+          type="search"
 
-                    {/* Search Input */}
-                    <div className="relative flex-grow">
-                      <input
-                        type="search"
-                        className={`block py-2.5 pl-3 pr-16 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${isSearchBarActive ? "w-[21rem]" : "w-[18rem]"
-                          }`}
-                        placeholder="Search for Courses here..."
-                        onFocus={activateSearchBar}
-                        onBlur={deactivateSearchBar}
-                        value={inputValue}
-                        onChange={(e) => setInputValue(e.target.value)}
-                        required
-                      />
+          className={`block w-full md:w-[18rem] lg:w-[21rem] h-full py-2.5 pl-3 pr-12 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${
+            isSearchBarActive ? "w-full md:w-[21rem]" : "w-full md:w-[18rem]"
+          }`}
+          placeholder="Search for Datasets here..."
+          style={{borderRadius:"0 25px 25px 0"}}
+          onFocus={activateSearchBar}
+          onBlur={deactivateSearchBar}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)} 
+          required
+        />
 
-                      <button
-                        type="submit"
-                        className="absolute top-0 right-0 flex items-center justify-center w-12 h-full text-white bg-blue-700 rounded-tr-[20px] rounded-br-[20px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                          />
-                        </svg>
-                        <span className="sr-only">Search</span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+        <button
+          type="submit"
+          className="absolute top-0 right-0 flex items-center justify-center w-10 md:w-12 h-full text-white bg-blue-700 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300"
+          style={{borderRadius:"0 25px 25px 0"}}
+        >
+          <svg
+            className="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 20 20"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+            />
+          </svg>
+          <span className="sr-only">Search</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
 
               <div className="top-trending top-learning">
                 <div className="trending-logo">
