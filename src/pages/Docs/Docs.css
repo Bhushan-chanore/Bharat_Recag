@@ -19,16 +19,23 @@ a{
     flex-flow: column;
     font-weight: 400;
 }
-@media screen and (max-width:500px) {
-    .docs-section{
-        padding: 0.4rem;
-    }
-}
+
 .docs-heading{
     font-size: var(--font-size-one);
     font-weight: 900;
     line-height: 1.2;
     padding: 2rem 0 0 0;
+}
+@media screen and (max-width:500px) {
+    .docs-section{
+        padding: 0.4rem;
+    }
+    .docs-heading{
+        text-align: center;
+    }
+    .buttons{
+        justify-content: center;
+    }
 }
 .docs-content{
     display: grid;

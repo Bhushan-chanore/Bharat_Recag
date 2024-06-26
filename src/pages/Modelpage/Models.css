@@ -643,6 +643,15 @@ a{
      .trending-side-data,.social-side-data,.finance-side-data,.programmming-side-data,.extdata-side-data,.textdata-side-data,.exercise-side-data{
         display:none;
     }
+
+    .model-content{
+        margin: 0 0 3rem 0;
+        align-items: center;
+    }
+    .model-para{
+        align-items: center;
+        text-align: center;
+    }
 }
 @media screen and (max-width:748px) {
     .grid4{

@@ -32,12 +32,7 @@ section.code{
     justify-content: space-between;
     align-items: center;
 }
-@media screen and (max-width:500px) {
-    .code-details{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
+
 .code-content{
     display: flex;
     flex-direction: column;
@@ -45,6 +40,18 @@ section.code{
     margin: 3rem 0;
     align-self: flex-start;
     max-width: 50rem;
+}
+
+@media screen and (max-width:500px) {
+    .code-details{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .code-content{
+        margin: 0 0 3rem 0;
+        text-align: center;
+        align-items: center;
+    }
 }
 h1.main-title{
     font-size: var(--font-size-one);

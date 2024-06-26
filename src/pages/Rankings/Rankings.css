@@ -35,6 +35,13 @@ section.ranking{
     padding:1.5rem 0;
     display:flex;
 }
+@media screen and (max-width:500px){
+    .rank-title{
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+}
 .rank-title>h3.main{
     font-size:var(--font-size-one);
     font-weight: 900;

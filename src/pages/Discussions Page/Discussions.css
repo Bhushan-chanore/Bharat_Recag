@@ -22,11 +22,7 @@ a{
     align-items: center;
     flex-wrap: wrap;
 }
-@media screen and (max-width:500px){
-    .discussion-details{
-        justify-content: center;
-    }
-}
+
 
 .discussion-content{
     display: flex;
@@ -35,6 +31,19 @@ a{
     margin: 3rem 0;
     align-self: flex-start;
     max-width: 50rem;
+}
+@media screen and (max-width:500px){
+    .discussion-details{
+        justify-content: center;
+    }
+    .container{
+        margin: 0;
+    }
+    .discussion-content{
+        margin: 0 0 3rem 0;
+        align-items: center;
+        text-align: center;
+    }
 }
 h1.main-title{
     font-size: var(--font-size-one);

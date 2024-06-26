@@ -457,6 +457,7 @@ export default function Models() {
         <button
           type="button"
           className="flex z-10 items-center justify-center h-full py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg md:rounded-tl-[20px] md:rounded-bl-[20px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300 w-full md:w-auto"
+          style={{borderRadius:"25px 0 0 25px"}}
           onClick={toggleDropdown}
         >
           {selectedCategory ? selectedCategory.slice(0, 10) : "All Models"}  
@@ -502,6 +503,7 @@ export default function Models() {
           className={`block w-full md:w-[18rem] lg:w-[21rem] h-full py-2.5 pl-3 pr-12 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${
             isSearchBarActive ? "w-full md:w-[21rem]" : "w-full md:w-[18rem]"
           }`}
+          style={{borderRadius:"0 25px 25px 0"}}
           placeholder="Search for Model here..."
           onFocus={activateSearchBar}
           onBlur={deactivateSearchBar}
@@ -513,6 +515,7 @@ export default function Models() {
         <button
           type="submit"
           className="absolute top-0 right-0 flex items-center justify-center w-10 md:w-12 h-full text-white bg-blue-700 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300"
+          style={{borderRadius:"0 25px 25px 0"}}
         >
           <svg
             className="w-5 h-5"

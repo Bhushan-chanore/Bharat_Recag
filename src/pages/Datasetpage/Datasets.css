@@ -192,13 +192,7 @@ input::placeholder,input[type="text"]{
     font-size: 1rem;
 }
 
-.options{
-    
-}
-/* .options:hover{
-    background-color: #1e40ad;
-    color: white;
-} */
+
 .trending-models{
     max-width: 122rem;
     width: 100%;
@@ -316,6 +310,14 @@ h1.trending-title,h1.social-title,h1.finance-title,h1.rogrammming-title,h1.textd
     .card{
         max-width:40rem;
 
+    }
+    .dataset-content{
+            justify-content: center;
+    align-items: center;
+margin: 0 0 3rem 0;
+    }
+    p.dataset-para{
+        text-align: center;
     }
 }
 .card{
