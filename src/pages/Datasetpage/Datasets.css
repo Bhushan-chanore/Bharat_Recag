@@ -90,13 +90,16 @@ section.dataset{
     display:flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 @media (max-width:700px) {
     .dataset-details{
         justify-content: center;
+        flex-wrap: wrap;
+
     }
 }
+
+
 h1.main-title{
     font-size: var(--font-size-one);
     font-weight: 700;

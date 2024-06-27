@@ -431,6 +431,12 @@ figure>img{
         min-width: 300px;
     }
 }
+@media screen and (max-width:1100px) {
+    .card{
+        min-width: 324px;
+    }
+}
+
 
 /* css for search-bar */
 .search-bar{

@@ -452,6 +452,9 @@ export default function Host() {
                   Recag offers a range of offerings for competition hosts.
                   Select the one that&apos;s right for your needs.
                 </p>
+              </div>
+
+
                 <div className="top-comp column">
                   <div className="community-sec row">
                     <img src={img9} alt="logo-9" />
@@ -796,7 +799,8 @@ export default function Host() {
                     </div>
                   </div>
                 </div>
-              </div>
+
+
               <div className="fourth-section">
                 <h3 className="main">Competition FAQs</h3>
                 <div className="faq-section">
