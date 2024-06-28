@@ -285,12 +285,12 @@ div.row{
     width: 100%;
 }
 div.row>img{
-    align-self: flex-start;
-    justify-self: flex-start;
+    align-self: center;
+    justify-self: center;
 }
 .top-comp-content{
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     display: flex;
     flex-flow: column;
 }
@@ -568,7 +568,7 @@ div.top-comp.points{
         padding: 1rem 1rem;
     }
     p.third-sec{
-        text-align:left;
+        text-align:center;
     }
     h3.main,h5.third-sec{
         margin: 0;
@@ -692,7 +692,7 @@ div.top-comp.points{
     }
     div.row{
         flex-flow:column;
-        align-items:flex-start;
+        align-items:center;
     }
 }
 
