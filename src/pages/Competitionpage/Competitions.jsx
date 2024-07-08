@@ -1,21 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 import "./Competitions.css";
-import {
-  MdOutlineOutlinedFlag,
-  MdOutlineSchedule,
-  MdOutlinePeopleAlt,
-  MdHistoryToggleOff,
-} from "react-icons/md";
 
-import { Cards } from "../Cards";
 import img1 from "../../assets/competition-img1.svg";
-import img2 from "../../assets/competition-img2.png";
-import img3 from "../../assets/competition-img3.png";
-import img4 from "../../assets/competition-img4.png";
-import img5 from "../../assets/competition-img5.png";
-import img6 from "../../assets/competition-img6.png";
-import img7 from "../../assets/competition-img7.png";
-import img8 from "../../assets/competition-img8.png";
+
 
 import "../css/vendors/tippy.css";
 import "../css/vendors/litepicker.css";
@@ -27,24 +14,23 @@ import "../css/components/mobile-menu.css";
 import Mobilemenu from "../Dashboard/Mobilemenu";
 import Simplemenu from "../Dashboard/Simplemenu";
 import profile4 from "../image/fakers/profile-4.jpg";
-import { ArrowDownNarrowWide, BellRing, Cross, Search, X } from "lucide-react";
+import {  BellRing } from "lucide-react";
 import { FaPlus } from "react-icons/fa";
 import NotificationPopup from "../../components/notification-popup.component";
 import ProfilePopup from "../../components/profile-popup.component";
-
-// import Page from "../../codegamy-main/app/page"
+import Comp1 from "./Comp1";
 
 export default function Competitions() {
- 
 
-  
+
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
 
-  
+
   const data = [
     {
       id: 1,
@@ -79,228 +65,15 @@ export default function Competitions() {
       title: "Analytics",
     },
   ];
-  const competeData = [
-    {
-      id: 1,
-      image: img2,
-      title: "Titanic - Machine Learning from Disaster",
-      desc1:
-        "Start here! Predict survival on the Titanic and get familiar with ML basics",
-      use: "Getting Started",
-      desc3: "16247 Teams",
-      rating_title: "Knowledge",
-      time: "Ongoing",
-    },
-    {
-      id: 2,
-      image: img3,
-      title: "House Prices - Advanced Regression Techniques",
-      desc1:
-        "Predict sales prices and practice feature engineering, RFs, and gradient boosting",
-      use: "Getting Started",
-      desc3: "4697 Teams",
-      rating_title: "Knowledge",
-      time: "Ongoing",
-    },
-    {
-      id: 3,
-      image: img4,
-      title: "Spaceship Titanic",
-      desc1:
-        "Predict which passengers are transported to an alternate dimension",
-      use: "Getting Started",
-      desc3: "2750 Teams",
-      rating_title: "Knowledge",
-      time: "Ongoing",
-    },
-  ];
-  const activeData = [
-    {
-      id: 1,
-      image: img5,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 2,
-      image: img6,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 3,
-      image: img7,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 4,
-      image: img8,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 5,
-      image: img5,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 6,
-      image: img6,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 7,
-      image: img7,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 8,
-      image: img8,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 9,
-      image: img2,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 10,
-      image: img3,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 11,
-      image: img4,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 12,
-      image: img5,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-  ];
-  const recentData = [
-    {
-      id: 1,
-      image: img5,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 2,
-      image: img6,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 3,
-      image: img7,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-    {
-      id: 4,
-      image: img8,
-      title: "LLM - Detect AI Generated Text",
-      desc1: "Identify which essay was written by a large language model",
-      use: "Featured",
-      size: "Code Competition",
-      desc3: "3127 Teams",
-      rating_title: "$110,000",
-      time: "a month ago",
-    },
-  ];
+  
+ 
 
 
   const [isNotificationPopupVisible, setIsNotificationPopupVisible] =
     useState(false);
   const [isProfilePopupVisible, setIsProfilePopupVisible] = useState(false);
 
-  
+
   const toggleNotificationPopup = () => {
     closeOtherPopups();
     setIsNotificationPopupVisible(!isNotificationPopupVisible);
@@ -331,7 +104,7 @@ export default function Competitions() {
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
     setDropdownOpen(false);
-    setInputValue(category); 
+    setInputValue(category);
     // Trigger search
     console.log(`Search started for category: ${category}`);
   };
@@ -358,7 +131,6 @@ export default function Competitions() {
             width: "100vw",
             backgroundColor: "#ffffff",
             borderRadius: "30px",
-            padding: "1.5rem 2rem",
           }}
         >
           <div className="container">
@@ -366,7 +138,7 @@ export default function Competitions() {
               <div className="top-section">
                 {/* <!-- BEGIN: Top Bar --> */}
                 <div
-                  className="relative flex h-[67px] items-center border-b border-slate-200"
+                  className="relative sm:flex hidden h-[67px] items-center border-b border-slate-200"
                   style={{ marginTop: "-55px", zIndex: 0 }}
                 >
                   <div
@@ -382,7 +154,7 @@ export default function Competitions() {
                       </li>
                     </ol>
                   </div>
-                  
+
 
                   {/* <!-- BEGIN: Notifications --> */}
                   <div
@@ -470,7 +242,7 @@ export default function Competitions() {
                             <div
                               className="relative p-6 w-full max-w-lg rounded-lg shadow-lg dark:bg-gray-800 transition-transform transform scale-95 duration-300"
                               onClick={(e) => e.stopPropagation()}
-                              style={{backgroundColor:"#ffffff"}}
+                              style={{ backgroundColor: "#ffffff" }}
 
                             >
                               {/* Modal header */}
@@ -503,7 +275,7 @@ export default function Competitions() {
                               </div>
                               {/* Modal body */}
                               <form className="mt-4 space-y-4">
-                                <div>
+                                <div className="flex flex-col items-start">
                                   <label
                                     htmlFor="name"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -519,7 +291,7 @@ export default function Competitions() {
                                     required
                                   />
                                 </div>
-                                <div>
+                                <div className="flex flex-col items-start">
                                   <label
                                     htmlFor="link"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -535,7 +307,7 @@ export default function Competitions() {
                                   />
                                 </div>
 
-                                <div>
+                                <div className="flex flex-col items-start">
                                   <label
                                     htmlFor="category"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -553,7 +325,7 @@ export default function Competitions() {
                                     <option value="PH">Phones</option>
                                   </select>
                                 </div>
-                                <div>
+                                <div className="flex flex-col items-start">
                                   <label
                                     htmlFor="files"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -568,7 +340,7 @@ export default function Competitions() {
                                     className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                   />
                                 </div>
-                                <div>
+                                <div className="flex flex-col items-start">
                                   <label
                                     htmlFor="description"
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -621,140 +393,106 @@ export default function Competitions() {
           <div className="container">
             <div className="trending-section ">
               {/* search with category */}
-              <div className="outer-section flex mb-[3rem]">
-              <form className="max-w-lg ml-auto">
-                <div className="flex items-center">
-                  {/* Dropdown Button */}
-                  <div className="relative inline-block text-left">
-                    <button
-                      type="button"
-                      className="flex z-10 items-center rounded-tl-[20px] rounded-bl-[20px] justify-center py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300"
-                      onClick={toggleDropdown}
-                    >
-                      {selectedCategory || "All categories"}
-                      <svg
-                        className="w-2.5 h-2.5 ml-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 10 6"
-                      >
-                        <path
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="m1 1 4 4 4-4"
-                        />
-                      </svg>
-                    </button>
-                    {/* Dropdown Content */}
-                    {isDropdownOpen && (
-                      <div className="absolute z-10 mt-1 w-44 bg-[#ffffff] divide-y divide-gray-100 rounded-b-lg shadow-lg dark:bg-gray-700 transition-opacity duration-300 opacity-100">
-                        <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
-                          {data.map((item) => (
-                            <li key={item.id}>
-                              <button
-                                type="button"
-                                className="w-full px-4 py-2 text-left hover:bg-[#e2e8f0] dark:hover:bg-gray-600 dark:hover:text-white"
-                                onClick={() => handleCategoryClick(item.title)}
-                              >
-                                {item.title}
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                  {/* Search Input */}
-                  <div className="relative flex-grow">
-                    <input
-                      type="search"
-                      className={`block py-2.5 pl-3 pr-16 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-tr-[20px] rounded-br-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${
-                        isSearchBarActive ? "w-[21rem]" : "w-[18rem]"
-                      }`}
-                      placeholder="Search for Competitions here..."
-                      onFocus={activateSearchBar}
-                      onBlur={deactivateSearchBar}
-                      value={inputValue}
-                      onChange={(e) => setInputValue(e.target.value)} 
-                      required
-                    />
+              <div className="outer-section flex mb-12">
+  <form className="w-full max-w-lg ml-auto sm:px-4 px-0 md:px-0">
+    <div className="flex flex-row items-center">
+      {/* Dropdown Button */}
+      <div className="relative inline-block text-left mt-2 mb-2 md:mb-0">
+      <button
+  type="button"
+  className="flex z-10 items-center justify-center h-full py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg md:rounded-tl-[20px] md:rounded-bl-[20px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300 w-full md:w-auto"
+  onClick={toggleDropdown}
+  style={{ borderRadius: "25px 0 0 25px", whiteSpace: "nowrap", overflowX: "auto" }}
+>
+  {selectedCategory ? selectedCategory.slice(0,8)+ " .." : "Select"}  
+  <svg
+    className="w-2.5 h-2.5 ml-1"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 10 6"
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="m1 1 4 4 4-4"
+    />
+  </svg>
+</button>
+{/* Dropdown Content */}
+        {isDropdownOpen && (
+          <div className="absolute z-10 mt-1 w-44 bg-white divide-y divide-gray-100 rounded-b-lg shadow-lg dark:bg-gray-700 transition-opacity duration-300 opacity-100">
+            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+              {data.map((item) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    className="w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={() => handleCategoryClick(item.title)}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      {/* Search Input */}
+      <div className="relative flex-grow">
+        <input
+          type="search"
 
-                    <button
-                      type="submit"
-                      className="absolute top-0 right-0 flex items-center justify-center w-12 h-full text-white bg-blue-700 rounded-tr-[20px] rounded-br-[20px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300"
-                    >
-                      <svg
-                        className="w-5 h-5"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                        />
-                      </svg>
-                      <span className="sr-only">Search</span>
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div> 
+          className={`block w-full md:w-[18rem] lg:w-[21rem] h-full py-2.5 pl-3 pr-12 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${
+            isSearchBarActive ? "w-full md:w-[21rem]" : "w-full md:w-[18rem]"
+          }`}
+          placeholder="Search for competitions here..."
+          style={{borderRadius:"0 25px 25px 0"}}
+          onFocus={activateSearchBar}
+          onBlur={deactivateSearchBar}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)} 
+          required
+        />
+
+        <button
+          type="submit"
+          className="absolute top-0 right-0 flex items-center justify-center w-10 md:w-12 h-full text-white bg-blue-700 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300"
+          style={{borderRadius:"0 25px 25px 0"}}
+        >
+          <svg
+            className="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 20 20"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+            />
+          </svg>
+          <span className="sr-only">Search</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
 
             </div>
-            
-            
 
-{/* <Page/> */}
-            <div className="textdata-section">
-              <div className="top-textdata">
-                <div className="textdata-logo">
-                  <MdOutlinePeopleAlt className="textdata-icon" />
-                  <h1 className="textdata-title">Community Competitions</h1>
-                </div>
-                <div className="textdata-side-data">See All</div>
-              </div>
 
-              <div className="communitytitle">
-                <h5 className="mb-4 text-4xl font-bold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text">
-                  Make Learning Fun
-                </h5>
-                <p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 text-center">
-                  Use our no-cost, self-service platform to create competitions
-                  for your community.
-                  <a href="/" className=" lined ">
-                    <br /> Learn more. <br />{" "}
-                  </a>
-                  Ready to host?
-                  <a href="/" className=" lined">
-                    {" "}
-                    Create a competition or view our library of cloneable
-                    competitions.
-                  </a>
-                </p>
-              </div>
+<Comp1/>
 
-              <div className="textdata-cards grid4 ">
-                {activeData.map((data) => {
-                  return <Cards key={data.id} {...data} />;
-                })}
-              </div>
-            </div>
-            <div className="explore-section">
-              <div className="explore-title">
-                Didn&apos;t find what you were looking for?
-              </div>
-              <div className="explore-button">
-                <div className="button-content">Explore all competitions</div>
-              </div>
-            </div>
+
+
+
           </div>
         </section>
       </div>

@@ -456,7 +456,7 @@ export default function Host() {
 
 
                 <div className="top-comp column">
-                  <div className="community-sec row">
+                  <div className="community-sec row hostcard">
                     <img src={img9} alt="logo-9" />
                     <div className="top-comp-content">
                       <h3 className="main">Community</h3>
@@ -464,7 +464,7 @@ export default function Host() {
                         For educators, small businesses, or ML enthusiasts
                       </p>
                       <h5 className="third-sec">No cost</h5>
-                      <div className="host-bottom-content row center">
+                      <div className="host-bottom-content  center">
                         <a href="/">
                           <button className="start">Get Started</button>
                         </a>
@@ -483,7 +483,7 @@ export default function Host() {
                         problems
                       </p>
                       <h5 className="third-sec">Pricing varies</h5>
-                      <div className="host-bottom-content row center">
+                      <div className="host-bottom-content  center">
                         <a href="/">
                           <button className="start">Contact Us</button>
                         </a>
@@ -501,7 +501,7 @@ export default function Host() {
                         For Academic / Research Institutions or Non-Profits
                       </p>
                       <h5 className="third-sec">Grants available</h5>
-                      <div className="host-bottom-content row center">
+                      <div className="host-bottom-content  center">
                         <a href="/">
                           <button className="start">Apply Now</button>
                         </a>

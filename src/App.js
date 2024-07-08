@@ -25,29 +25,25 @@ import TopRequiredModel from './pages/Modelpage/TopRequiredModel.jsx';
 
 import Login from "./pages/Auth/Login.jsx"
 import Signup from "./pages/Auth/Signup.jsx"
-
+import Page from './pages/Competitionpage/contests/[contestId]/page.js';
+import ProblemPage from "./pages/Competitionpage/contests/[contestId]/[problemId]/page"
 function App() {
   return (
     <div className="App">
       <AppProvider>
-
         <BrowserRouter>
           <Routes>
-            
             <Route path="/" element={<Home />} />
-          
             <Route path='/code' element={<Code />} />
             <Route path="/dataset" element={<Datasets />} />
             <Route path="/dataset/trending-dataset" element={<TrendingDataset/>} />
             <Route path='/dataset/toptrending-dataset' element={<TopRequiredDataset/>}/>
-
             <Route path='/model' element={<Models />} />
             <Route path='/model/trending-model' element={<TopRequiredModel/>}/>
-
-
             <Route path='/courses' element={<Learn />} />
             <Route path='/competition' element={<Competitions />} />
-            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/competition/:contestId' element={<Page />} /> {/* Dynamic Route */}
+            <Route path="/competition/:contestId/:problemId" element={<ProblemPage />} /> {/* Dynamic Route for Problem Page */}            <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/blog' element={<Blog />} />
             <Route path="/host-competition" element={<Hostcomp />} />
             <Route path='/discussions' element={<Discussions />} />
@@ -56,7 +52,6 @@ function App() {
             <Route path='/privacy' element={<Privacy />} />
             <Route path="/rankings" element={<Ranking />} />
             <Route path="/team" element={<Team />} />
-
             <Route path="/login" element={<Login/>}/>
             <Route path="/sign-up" element={<Signup/>}/>
           </Routes>

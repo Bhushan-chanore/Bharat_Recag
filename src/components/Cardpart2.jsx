@@ -20,7 +20,7 @@ function Cardpart2(data) {
                                 Read More
                             </div>
                         </div>
-                        <div className="h-[46px] w-[46px] relative rounded-27xl box-border border-[2px] border-solid border-lavender">
+                        <div className="z-[0] h-[46px] w-[46px] relative rounded-27xl box-border border-[2px] border-solid border-lavender">
                             <div className="absolute top-[calc(50%_-_7.5px)] left-[calc(50%_-_0.5px)] bg-black w-px h-[15px]" />
                             <div className="absolute top-[calc(50%_-_0.5px)] left-[calc(50%_-_7.5px)] bg-black w-[15px] h-px z-[1]" />
                         </div>

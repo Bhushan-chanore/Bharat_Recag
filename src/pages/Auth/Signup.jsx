@@ -55,7 +55,7 @@ const Signup = ({ isOpen, onRequestClose, openLogin}) => {
       >
         <section
           className="flex items-center justify-center min-h-screen bg-gray-100 text-gray-900"
-          style={{ backgroundColor: "rgb(36, 52, 179)" }}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
         >
           <div className="max-w-screen-md w-full bg-white shadow-lg rounded-lg flex flex-col lg:flex-row overflow-hidden">
             <div className="lg:w-1/2 xl:w-5/12 w-[20rem] p-6 sm:p-10 flex flex-col items-center">
