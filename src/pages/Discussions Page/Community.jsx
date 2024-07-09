@@ -10,7 +10,6 @@ import img7 from '../../assets/discussion-img7.svg'
 import img8 from '../../assets/h-threedots.svg'
 import forumImg from '../../assets/discussion-forum.svg'
 import groupImg from '../../assets/discussion-group.svg'
-import { FilterSearchBar } from '../FilterSearchBar';
 import { GoTriangleUp } from 'react-icons/go';
 import { NavLink, Link } from 'react-router-dom';
 
@@ -23,19 +22,40 @@ import "../css/vendors/simplebar.css"
 import "../css/components/mobile-menu.css"
 import Mobilemenu from '../Dashboard/Mobilemenu'
 import profile4 from "../image/fakers/profile-4.jpg"
-import { ArrowDownNarrowWide, BellRing, Search } from 'lucide-react';
+import { ArrowDownNarrowWide, BellRing, CircleChevronLeft, Search } from 'lucide-react';
 import { FaPlus } from 'react-icons/fa';
 
 function Community() {
 
-    const [buttonStates, setButtonStates] = useState({});
-    const handle = (itemId) => {
+   
+ // search bar with category containt
+ const [isDropdownOpen, setDropdownOpen] = useState(false);
+ const [selectedCategory, setSelectedCategory] = useState(null);
+ const [inputValue, setInputValue] = useState("");
+ const [isSearchBarActive, setSearchBarActive] = useState(false);
 
-        setButtonStates((prevState) => ({
-            ...prevState,
-            [itemId]: !prevState[itemId] || false,
-        }));
-    };
+
+ const toggleDropdown = () => {
+   setDropdownOpen(!isDropdownOpen);
+ };
+
+ const handleCategoryClick = (category) => {
+   setSelectedCategory(category);
+   setDropdownOpen(false);
+   setInputValue(category); 
+   // Trigger search
+   console.log(`Search started for category: ${category}`);
+ };
+
+ const activateSearchBar = () => {
+   setSearchBarActive(true);
+ };
+
+ const deactivateSearchBar = () => {
+   setSearchBarActive(false);
+ };
+
+
 
 
     const data = [
@@ -177,14 +197,16 @@ function Community() {
                     {/* <Simplemenu style={{ color: "#fff" }} /> */}
 
 
-                    <section className={`discussion das`} style={{ overflow: 'scroll', height: "100vh", width: "100vw", backgroundColor: "#ffffff", borderRadius: "15px", padding: "2rem" }}
+                    <section className={`discussion das`} style={{ overflowY: 'scroll',overflowX:"hidden", height: "100vh", width: "100vw", backgroundColor: "#ffffff", borderRadius: "15px", }}
                     >
                         <div className="container">
                             <div className="discussion-section">
                                 <div className="top-section">
-
+                                <Link to="/discussions" className="flex text-[0.9rem] sm:hidden font-semibold text-gray-400">
+         ⯇ Back to Discussions
+        </Link>
                                     {/* <!-- BEGIN: Top Bar --> */}
-                                    <div className="relative z-[51] flex h-[40px] items-center border-b border-slate-200" style={{ marginTop: "-28px", padding: "0 10px", zIndex: "0" }}>
+                                    <div className="relative z-[51] sm:flex hidden h-[40px] items-center border-b border-slate-200" style={{ marginTop: "-28px", padding: "0 10px", zIndex: "0" }}>
 
                                         {/* <!-- BEGIN: Breadcrumb --> */}
                                         <div aria-label="breadcrumb" className=" -intro-x mr-auto hidden sm:flex">
@@ -222,14 +244,7 @@ function Community() {
                                         <div className="discussion-content">
                                             <h1 className="main-title">Discussions</h1>
                                             <p className="discussion-para">Discuss the Recag platform & machine learning topics - this includes sharing feedback, asking questions, and more.</p>
-                                            <Link to="/discussions" className='btn'>
-                                                <button
-                                                    className="bg-darkblue-100 hover:bg-blue-600 text-white font-[600]  flex"
-                                                    style={{ borderRadius: "20px", padding: "8px 16px 8px 12px" }}
-                                                >
-                                                    <FaPlus className='plus-icon' />  <span className='ml-2 text-[14px]'>Ask a Question</span>
-                                                </button>
-                                            </Link>
+                                            
                                         </div>
                                         <div className="datasets-image">
                                             <img src={img1} alt="logo-1" width={220} height={170} />
@@ -271,49 +286,100 @@ function Community() {
                                 </div>
                             </div>
                         </div>
-                        <div className="outer-section">
-                            <div className="filter-section">
-                                <div className='dis-search '>
-                                    <div className="flex min-h-[56px] items-center gap-4 rounded-[5px] px-8 bg-white border border-gray-300" style={{ borderRadius: "5px", fontSize: "20px", padding: "5px",  }}>
 
+                        <div className="outer-section flex mb-12">
+  <form className="w-full max-w-lg ml-auto sm:px-4 px-0 md:px-0">
+    <div className="flex flex-row items-center">
+      {/* Dropdown Button */}
+      <div className="relative inline-block text-left mt-2 mb-2 md:mb-0">
+      <button
+  type="button"
+  className="flex z-10 items-center justify-center h-full py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg md:rounded-tl-[20px] md:rounded-bl-[20px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 transition-colors duration-300 w-full md:w-auto"
+  onClick={toggleDropdown}
+  style={{ borderRadius: "25px 0 0 25px", whiteSpace: "nowrap", overflowX: "auto" }}
+>
+  {selectedCategory ? selectedCategory.slice(0,8)+ " .." : "Select"}  
+  <svg
+    className="w-2.5 h-2.5 ml-1"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 10 6"
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="m1 1 4 4 4-4"
+    />
+  </svg>
+</button>
+{/* Dropdown Content */}
+        {isDropdownOpen && (
+          <div className="absolute z-10 mt-1 w-44 bg-white divide-y divide-gray-100 rounded-b-lg shadow-lg dark:bg-gray-700 transition-opacity duration-300 opacity-100">
+            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+              {data.map((item) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    className="w-full px-4 py-2 text-left hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={() => handleCategoryClick(item.title)}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      {/* Search Input */}
+      <div className="relative flex-grow">
+        <input
+          type="search"
 
-                                        <input
-                                            className="dis-se flex h-10 w-full rounded-md  px-8 py-2 text-sm border-white placeholder-gray-500 focus:outline-white focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-center my-1"
-                                            placeholder="Search for Questions"
-                                            type="text"
-                                        />
-                                        <div className='pr-6'>
+          className={`block w-full md:w-[18rem] lg:w-[21rem] h-full py-2.5 pl-3 pr-12 text-sm text-gray-900 bg-transparent border border-gray-300 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500 transition-all duration-300 ${
+            isSearchBarActive ? "w-full md:w-[21rem]" : "w-full md:w-[18rem]"
+          }`}
+          placeholder="Search here..."
+          style={{borderRadius:"0 25px 25px 0"}}
+          onFocus={activateSearchBar}
+          onBlur={deactivateSearchBar}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)} 
+          required
+        />
 
-                                            <Search size={24} />
-                                        </div>
-                                    </div>
-                                    {/* <input className='dis-sea' type='text' placeholder='Search for Question'/> */}
-                                </div>
-
-
-                                <div className="overflow-x-auto flex items-center my-4 pl-[1.25rem]" >
-                                    <span className="bg-darkblue-100 mr-3 hover:bg-blue-600 text-white font-semibold flex items-center  px-4 py-2" style={{ borderRadius: "20px" }}>
-                                        <ArrowDownNarrowWide className="w-5 h-5 mr-1" />
-                                        Filters
-                                    </span>
-
-                                    <div className="codebutton flex flex-row gap-4 text-[14px] cursor-pointer" style={{ maxHeight: "90px", overflowX: "auto" }}>
-                                        {data.map((data) => (
-                                            <div onClick={() => handle(data.id)}
-                                                style={{ borderRadius: "20px", }}
-                                                className={`text-sm font-normal border border-gray-400 whitespace-nowrap px-3 py-2 ${buttonStates[data.id] ? 'bg-darkblue-100 text-white' : 'bg-white text-black'}`} key={data.id}>
-                                                {data.title}
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                </div>
-
-
-
-
-                            </div>
+        <button
+          type="submit"
+          className="absolute top-0 right-0 flex items-center justify-center w-10 md:w-12 h-full text-white bg-blue-700 rounded-r-lg md:rounded-tr-[20px] md:rounded-br-[20px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300"
+          style={{borderRadius:"0 25px 25px 0"}}
+        >
+          <svg
+            className="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 20 20"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+            />
+          </svg>
+          <span className="sr-only">Search</span>
+        </button>
+      </div>
+    </div>
+  </form>
                         </div>
+
+
+
                         <div className="container">
                             {
                                 discussData.map(data => {
@@ -338,7 +404,7 @@ function Community() {
 const ForumList = (data) => {
     const { image, title, subtitle, time, user1, user2, user3 } = data;
     return (
-        <div className="discussion-list">
+        <div className="discussion-list carddis">
             <div className='listview'>
                 <img src={image} alt="logo" />
                 <div className="discussion-main">
@@ -363,7 +429,7 @@ const ForumList = (data) => {
 const DiscussionList = (data) => {
     const { title, time, user1, rating, comments } = data;
     return (
-        <div className="discussion-list">
+        <div className="discussion-list carddis">
             <div className='listview'>
                 <div className="user" />
                 <div className="discussion-main list">
@@ -379,7 +445,7 @@ const DiscussionList = (data) => {
                     <div className="rating-icon" title="upvote"><GoTriangleUp className='inc-icon' /></div>
                     <div className="rating-number">{rating}</div>
                 </div>
-                <div className="user-content">
+                <div className="user-content mt-[0.5rem] sm:mt-0">
                     <div className="comments">
                         {comments} comments {" . "}
                     </div>

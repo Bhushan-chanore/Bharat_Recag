@@ -39,6 +39,16 @@ section.competition{
     
 }
 
+
+.competition-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 3rem 0;
+    align-self: flex-start;
+    max-width: 47rem;
+}
+
 @media screen and (max-width:600px) {
     section.competition{
         padding: 0.4rem;   
@@ -49,14 +59,9 @@ section.competition{
         align-items:center ;
         text-align: center;
     }
-}
-.competition-content{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 3rem 0;
-    align-self: flex-start;
-    max-width: 47rem;
+    .competition-content{
+        margin: 0;
+    }
 }
 h1.main-title{
     font-size: var(--font-size-one);

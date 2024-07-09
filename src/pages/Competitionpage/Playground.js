@@ -159,7 +159,8 @@ const Playground = ({ problem=null, isForSubmission = true, setSubmitted }) => {
             <button
               onClick={() => handleCompile(customInput)}
               disabled={!code}
-              className={`px-4 py-2 bg-dark-4 text-light-1 mt-2 rounded-lg text-sm`}
+              className={`px-4 py-2 bg-green-400 bg-dark-4 text-white mt-2 rounded-lg text-sm`}
+              style={{borderRadius:"20px"}}
             >
               {isCodeRunning ? <Loader /> : "Run"}
             </button>
@@ -167,7 +168,8 @@ const Playground = ({ problem=null, isForSubmission = true, setSubmitted }) => {
               <button
                 onClick={handleSubmit}
                 disabled={!code}
-                className={`px-4 py-2 bg-green-600 text-light-1 mt-2 rounded-lg text-sm`}
+                className={`px-4 py-2 bg-darkblue-100 text-white mt-2 rounded-lg text-sm`}
+                style={{borderRadius:"20px"}}
               >
                 {isCodeSubmitting ? <Loader /> : "Submit"}
               </button>

@@ -1,16 +1,8 @@
 import React, { useState } from "react";
 import "./Discussions.css";
 import img1 from "../../assets/discussion-img1.svg";
-import img2 from "../../assets/discussion-img2.svg";
-import img3 from "../../assets/discussion-img3.svg";
-import img4 from "../../assets/discussion-img4.svg";
-import img5 from "../../assets/discussion-img5.svg";
-import img6 from "../../assets/discussion-img6.svg";
-import img7 from "../../assets/discussion-img7.svg";
-import img8 from "../../assets/h-threedots.svg";
-import forumImg from "../../assets/discussion-forum.svg";
-import groupImg from "../../assets/discussion-group.svg";
 import { Link } from "react-router-dom";
+import { useQuestions } from './QuestionsContext';
 
 import "../css/vendors/tippy.css";
 import "../css/vendors/litepicker.css";
@@ -44,6 +36,7 @@ export default function Discussions() {
   const [isTagsFocused, setIsTagsFocused] = useState(false);
 
 
+  const { questions } = useQuestions();
 
   const data = [
     {
@@ -88,99 +81,7 @@ export default function Discussions() {
     },
   ];
 
-  const questions = [
-    {
-      id: 1,
-      title:
-        "Best practices for data fetching in a Next.js application with Server-Side...",
-      tag: [
-        {
-          tag1: "NEXTJS",
-          tag2: "REACT",
-        },
-      ],
-      name: " Mrityunjay Pathak",
-      time: "asked 5 month ago",
-      votes: "29 Likes",
-      answer: "19 answer",
-      views: "50 views",
-    },
-    {
-      id: 2,
-      title: "Async/Await Function Not Handling Errors Properly",
-      tag: [
-        {
-          tag1: "NEXTJS",
-          tag2: "REACT",
-        },
-      ],
-      name: " Mrityunjay Pathak",
-      time: "asked 3 month ago",
-      votes: "9 Likes",
-      answer: "19 answer",
-      views: "50 views",
-    },
-    {
-      id: 3,
-      title: "Product Feedback",
-      tag: [
-        {
-          tag1: "NEXTJS",
-          tag2: "REACT",
-        },
-      ],
-      name: " Mrityunjay Pathak",
-      time: "asked 2 month ago",
-      votes: "9 Likes",
-      answer: "1 answer",
-      views: "5 views",
-    },
-    {
-      id: 4,
-      title: "Next JS router",
-      tag: [
-        {
-          tag1: "NEXTJS",
-          tag2: "REACT",
-        },
-      ],
-      name: " Mrityunjay Pathak",
-      time: "asked 1 month ago",
-      votes: "29 Likes",
-      answer: "29 answer",
-      views: "20 views",
-    },
-    {
-      id: 5,
-      title: "Competition Hosting",
-      tag: [
-        {
-          tag1: "NEXTJS",
-          tag2: "REACT",
-        },
-      ],
-      name: " Mrityunjay Pathak",
-      time: "asked 3 month ago",
-      votes: "91 Likes",
-      answer: "9 answer",
-      views: "501 views",
-    },
-    {
-      id: 6,
-      title: "Accomplishments",
-      tag: [
-        {
-          tag1: "NEXTJS",
-          tag2: "REACT",
-        },
-      ],
-      name: " Mrityunjay Pathak",
-      time: "asked 2 month ago",
-      votes: "19 Likes",
-      answer: "9 answer",
-      views: "150 views",
-    },
-  ];
+ 
 
 
   const [isNotificationPopupVisible, setIsNotificationPopupVisible] = useState(false);
@@ -648,136 +549,71 @@ export default function Discussions() {
 
 
 
-              <div className="dis-question ">
-                {questions.map((item) => (
-                  <div
-                    className=" transform transition-transform duration-300 hover:scale-105"
-                    style={{
-                      borderRadius: "5px",
-                      marginBottom: "30px",
-                      backgroundColor: "#f1f5f9",
-                    }}
-                    key={item.id}
-                  >
-                    <div
-                      className="dis-card"
-                      style={{ borderRadius: "5px", marginBottom: "30px" }}
-                    >
-                      <div className="">
-                        <h2 className="dis-card-head pb-1">{item.title}</h2>
-                      </div>
+<div className="dis-question ">
+      {questions.map((item) => (
+        <Link
+          to={`/discussions/answer/${encodeURIComponent(item.title)}`}
+          key={item.id}
+          className="transform transition-transform duration-300 hover:scale-105"
+          style={{
+            borderRadius: "5px",
+            marginBottom: "30px",
+            backgroundColor: "#f1f5f9",
+            textDecoration: "none", // Ensure the link doesn't have an underline
+            color: "inherit", // Inherit text color
+          }}
+        >
+          <div className="dis-card bg-slate-100" style={{ borderRadius: "5px", marginBottom: "30px" }}>
+            <div>
+              <h2 className="dis-card-head pb-1">{item.title}</h2>
+            </div>
 
-                      <div className="dis-card-tag">
-                        <div className="dis-card-tag1 text-center">NEXTJS</div>
-                        <div className="dis-card-tag1 text-center">SSR</div>
-                      </div>
+            <div className="dis-card-tag">
+              <div className="dis-card-tag1 text-center">NEXTJS</div>
+              <div className="dis-card-tag1 text-center">SSR</div>
+            </div>
 
-                      <div
-                        className="flex flex-wrap"
-                        style={{
-                          justifyContent: "space-between",
-                          marginTop: "10px",
-                        }}
-                      >
-                        <div className="flex">
-                          <></>
-                          <span style={{ fontSize: "14px", color: "black" }}>
-                            {item.name}
-                          </span>
-                          <Dot />
-                          <span>{item.time}</span>
-                        </div>
-
-                        <div className="flex">
-                          <div className="flex" style={{ marginRight: "10px" }}>
-                            <ThumbsUp />
-                            <span style={{ marginTop: "5px" }}>
-                              {item.votes}
-                            </span>
-                          </div>
-
-                          <div className="flex" style={{ marginRight: "10px" }}>
-                            <MessageCircle />
-                            <span style={{ marginTop: "5px" }}>
-                              {item.answer}
-                            </span>
-                          </div>
-
-                          <div className="flex" style={{ marginRight: "10px" }}>
-                            <Eye />
-                            <span style={{ marginTop: "5px" }}>
-                              {item.views}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+            <div
+              className="flex flex-wrap"
+              style={{
+                justifyContent: "space-between",
+                marginTop: "10px",
+              }}
+            >
+              <div className="flex">
+                <span style={{ fontSize: "14px", color: "black" }}>{item.name}</span>
+                <span style={{ margin: "0 5px" }}>•</span>
+                <span>{item.time}</span>
               </div>
+
+              <div className="flex">
+                <div className="flex" style={{ marginRight: "10px" }}>
+                  <ThumbsUp />
+                  <span style={{ marginTop: "5px" }}>{item.votes}</span>
+                </div>
+
+                <div className="flex" style={{ marginRight: "10px" }}>
+                  <MessageCircle />
+                  <span style={{ marginTop: "5px" }}>{item.answer}</span>
+                </div>
+
+                <div className="flex" style={{ marginRight: "10px" }}>
+                  <Eye />
+                  <span style={{ marginTop: "5px" }}>{item.views}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
+
+
             </div>
           </div>
 
           {/* end of stack overflow */}
 
-          {/* <div className='container'>
-                                <div className="trending-section">
-                                    <div className="top-trending top-learning">
-                                        <div className="trending-logo">
-                                            <img src={forumImg} alt="logo" className="timeline-icon" />
-                                            <h1 className="trending-title">Forums</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                                {
-                                    forumData.map(data => {
-                                        return (
-                                            <NavLink to="#" key={data.id}>
-                                                <ForumList  {...data} />
-                                            </NavLink>
-                                        )
-                                    })
-                                }
-                            </div>
-                            <div className="container">
-                                <div className="trending-section second">
-                                    <div className="top-trending top-learning">
-                                        <div className="trending-logo ">
-                                            <div className="discuss-logo">
-                                                <img src={groupImg} alt="discussion" /></div>
-                                            <h1 className="trending-title">Discussions across BharatAi</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="outer-section">
-                                <div className="filter-section">
-                                    <FilterSearchBar btnData={btnData[0]} />
-                                    <div className="option-section">
-                                        {
-                                            data.map((data) => {
-                                                return (
-                                                    <NavLink to="#" key={data.id}>
-                                                        <div className="options">{data.title}
-                                                        </div>
-                                                    </NavLink>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="container">
-                                {
-                                    discussData.map(data => {
-                                        return (
-                                            <NavLink to="#" key={data.id}>
-                                                <DiscussionList {...data} />
-                                            </NavLink>
-                                        )
-                                    })
-                                }
-                            </div> */}
         </section>
       </div>
     </div>

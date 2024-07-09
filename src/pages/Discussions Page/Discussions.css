@@ -302,6 +302,12 @@ div.discussion-list{
 div.discussion-list:hover{
     background-color:  rgba(241, 243, 244, 0.494); ;
 }
+@media screen and (max-width:600px) {
+    .carddis{
+        display: flex;
+        flex-direction: column;
+    }
+}
 div.listview{
     height: 6rem;
     display: flex;
@@ -562,8 +568,21 @@ margin-top: 30px;
         gap: 0.7rem;
     }
     div.listview{
-        height: 6rem;
+        height: 9rem;
         padding:1rem 0.2rem;
+        white-space: wrap;
+    }
+    div.listview>img{
+        height:100%;
+        width:50%;
+    }
+    .right-view{
+        flex-flow: row;
+        gap:0.5rem;
+        margin-bottom: 10px;
+    }
+    .discussion-title{
+        white-space: wrap;
     }
 }
 @media screen and (max-width:500px){
