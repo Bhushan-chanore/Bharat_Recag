@@ -13,6 +13,10 @@ const CodeEditorWindow = ({ onChange, language, code, theme, fontSize, forProble
     else onChange('code', value);
   };
 
+  // const getcode = ()=>{
+      //  const details = axios.get("http://localhost:3001/list")
+  // }
+
   return (
     <div className="code-editor-container"  style={{ fontSize: fontSize, height: '500px' , }}>
       <ReactCodeMirror

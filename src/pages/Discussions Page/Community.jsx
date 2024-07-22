@@ -22,8 +22,7 @@ import "../css/vendors/simplebar.css"
 import "../css/components/mobile-menu.css"
 import Mobilemenu from '../Dashboard/Mobilemenu'
 import profile4 from "../image/fakers/profile-4.jpg"
-import { ArrowDownNarrowWide, BellRing, CircleChevronLeft, Search } from 'lucide-react';
-import { FaPlus } from 'react-icons/fa';
+import { BellRing, Search } from 'lucide-react';
 
 function Community() {
 

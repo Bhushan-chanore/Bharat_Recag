@@ -30,9 +30,17 @@ import Login from './pages/Auth/Login.jsx';
 import Signup from './pages/Auth/Signup.jsx';
 import Page from './pages/Competitionpage/contests/[contestId]/page.js';
 import ProblemPage from './pages/Competitionpage/contests/[contestId]/[problemId]/page';
-
 import QuestionsProvider from './pages/Discussions Page/QuestionsContext.js';
 
+import Interview from "./pages/Competitionpage/interview/page"
+import Professional from "./pages/Competitionpage/interview/professional/page.js"
+import Room from "./pages/Competitionpage/interview/professional/Room.js"
+import SocketWrapper from "./pages/Competitionpage/interview/professional/SocketWraper.js";
+
+
+import Meeting from "./pages/Competitionpage/component/interview/Meeting.js"
+// import Start from "./pages/Competitionpage/interview/peer-graded/start/page.js"
+import Peergrade from "./pages/Competitionpage/interview/peer-graded/page.js"
 function App() {
   return (
     <div className="App">
@@ -48,9 +56,24 @@ function App() {
               <Route path="/model" element={<Models />} />
               <Route path="/model/trending-model" element={<TopRequiredModel />} />
               <Route path="/courses" element={<Learn />} />
+
               <Route path="/competition" element={<Competitions />} />
-              <Route path="/competition/:contestId" element={<Page />} /> {/* Dynamic Route */}
-              <Route path="/competition/:contestId/:problemId" element={<ProblemPage />} /> {/* Dynamic Route for Problem Page */}
+              <Route path='/competition/interview' element={<Interview/>}/>
+
+
+              <Route path='/competition/interview/meeting' element={<Meeting/>}/>
+              <Route path="/competition/:contestId" element={<Page />} />
+               {/* Dynamic Route */}
+              <Route path="/competition/:contestId/:problemId" element={<ProblemPage />} /> 
+              {/* Dynamic Route for Problem Page */}
+
+              <Route path='/competition/interview/professional' element={<Professional/>}/>
+              <Route path='/competition/interview/professional/room/:roomId' element={<SocketWrapper><Room/></SocketWrapper>}/>
+
+
+              <Route path='/competition/interview/peer-graded' element={<Peergrade/>}/>
+              {/* <Route path='/competition/interview/peer-graded/start' element={<Start/>}/> */}
+
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/host-competition" element={<Hostcomp />} />
