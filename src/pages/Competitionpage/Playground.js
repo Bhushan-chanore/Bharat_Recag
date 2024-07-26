@@ -66,7 +66,7 @@ const Playground = ({ problem=null, isForSubmission = true, setSubmitted }) => {
     if (!forSubmisssion) setIsCodeRunning(true);
     const options = {
       method: "POST",
-      url: "https://jdoodle2.p.rapidapi.com/v1",
+      url: "http://localhost:3001/",
       headers: {
         "content-type": "application/json",
         "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,

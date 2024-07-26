@@ -93,7 +93,7 @@ export default function Room({ socket }) {
     setIsCodeRunning(true);
     const options = {
       method: "POST",
-      url: "https://jdoodle2.p.rapidapi.com/v1",
+      url: "http://localhost:3001/",
       headers: {
         "content-type": "application/json",
         "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
@@ -110,13 +110,17 @@ export default function Room({ socket }) {
     try {
       const response = await axios.request(options);
       setOutputDetails(response.data);
+      console.log("outputdetails : " , outputDetails)
       setIsCodeRunning(false);
-      return response.data.output;
+      console.log("output : ",response.data);
+      // return response.data.output;
     } catch (error) {
       setIsCodeRunning(false);
       console.error(error);
     }
   };
+
+  
 
   const handleFullScreen = () => {
     if (isFullScreen) {

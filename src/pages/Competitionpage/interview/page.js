@@ -124,7 +124,7 @@ const Page = () => {
         <div className='mb-3 justify-start m-1 p-[2rem] items-start w-[350px]' style={{border:"1px solid black" , borderRadius:"20px" }}>
           <h1 className='font-medium mb-1 text-[1.1rem]'>Past Interviews</h1>
           <div className='w-full flex gap-10 flex-wrap'>
-            {interviews && interviews.length > 0 ? (
+            {/* {interviews && interviews.length > 0 ? (
               interviews.map((interview, index) => (
                 <div key={index} onClick={() => { setInterviewDetails(interview); setIsInterviewModalOpen(true); setIsAssigned(false); }}
                   className='w-[340px] flex flex-col items-center gap-2 text-white rounded-3xl shadow-xl bg-gray-500 py-14 text-center hover:bg-gray-600 hover:scale-[1.03] transition-all ease-in cursor-pointer'>
@@ -134,14 +134,15 @@ const Page = () => {
               ))
             ) : (
               <p className='text-gray-2 text-[0.9rem]'>No interviews found</p>
-            )}
+            )} */}
+            <p className='text-gray-2 text-[0.9rem]'>No interviews found</p>
           </div>
         </div>
 
         <div className='mb-3 m-1 p-[2rem] items-start w-[350px]' style={{border:"1px solid black" , borderRadius:"20px" }}>
           <h1 className='font-medium mb-1 text-[1.1rem]'>Assigned Interviews</h1>
           <div className='w-full flex gap-10 flex-wrap'>
-            {assignedInterviews && assignedInterviews.assigned && assignedInterviews.assigned.length > 0 ? (
+            {/* {assignedInterviews && assignedInterviews.assigned && assignedInterviews.assigned.length > 0 ? (
               assignedInterviews.assigned.map((interview, index) => (
                 <div key={index} onClick={() => { setInterviewDetails(interview); setIsInterviewModalOpen(true); setIsAssigned(true); }}
                   className='w-[330px] flex flex-col items-center gap-2 text-white rounded-3xl shadow-xl bg-gray-700 py-14 text-center hover:bg-gray-800 hover:scale-[1.03] transition-all ease-in cursor-pointer'>
@@ -151,7 +152,8 @@ const Page = () => {
               ))
             ) : (
               <p className='text-gray-2 text-[0.9rem]'>No interviews found</p>
-            )}
+            )} */}
+            <p className='text-gray-2 text-[0.9rem]'>No interviews found</p>
           </div>
         </div>
         </div>

@@ -269,25 +269,66 @@ export const mockProblemsData = [{
 
 export const languagesData = [
   {
-    "value": "cpp",
-    "label": "C++",
-  },
-  {
     "value": "java",
     "label": "Java",
   },
   {
-    "value": "nodejs",
+    "value": "cpp",
+    "label": "C++",
+  },
+  {
+    "value": "py",
+    "label": "Python3",
+  },
+  {
+    "value": "c",
+    "label": "C",
+  },
+  {
+    "value": "js",
     "label": "Javascript",
   },
   {
-    "value": "python3",
-    "label": "Python",
-  }
+    "value": "go",
+    "label": "Golang",
+  },
+  {
+    "value": "cs",
+    "label": "C Sharp",
+  },
+  {
+    "value": "php",
+    "label": "PHP",
+  },
+  {
+    "value": "perl",
+    "label": "Perl",
+  },
+  {
+    "value": "ruby",
+    "label": "Ruby",
+  },
+  {
+    "value": "rust",
+    "label": "Rust",
+  },
+  {
+    "value": "groovy",
+    "label": "Groovy",
+  },
+  {
+    "value": "objc",
+    "label": "Objective-C",
+  },
+  {
+    "value": "lua",
+    "label": "Lua",
+  },
+  
 ]
 
 export const mockComments = {
-  'python3' : `#Write your code here
+  'py' : `#Write your code here
 print("Hello World")`,
 
   'cpp' : `// Write your code here
@@ -309,6 +350,44 @@ public class Test
   }
 };`,
 
-  'nodejs': `// Write your code here 
-console.log('Hello World');`
+  'js': `// Write your code here 
+console.log('Hello World');`,
+
+'c':` 
+#include <stdio.h>
+int main() {
+   // printf() displays the string inside quotation
+   printf("Hello, World!");
+   return 0;
+}`,
+
+'go':`package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}`,
+
+'cs':`public class Program
+{
+    public static void Main(string[] args)
+    {
+        System.Console.WriteLine("Hello, World!");
+    }
+}`,
+'php':`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP - Hello, World!</title>
+</head>
+<body>
+        <h1><?php echo 'Hello, World!'; ?></h1>
+</body>
+</html>`
+
+
+
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/vendors/tippy.css";
 import "../css/vendors/litepicker.css";
 import "../css/vendors/tiny-slider.css";
@@ -44,6 +44,8 @@ import {
 import Mobilemenu from "./Mobilemenu.jsx";
 import Simplemenu from "./Simplemenu.jsx";
 import "./dashb.css";
+import Chart from "chart.js/auto";
+import Carousel from "react-multi-carousel";
 
 import SalesReport from "../../components/sales-report.component.jsx";
 import ReportBox from "../../components/report-box.component.jsx";
@@ -64,6 +66,10 @@ import SearchPopup from "../../components/search-popup.component.jsx";
 import NotificationPopup from "../../components/notification-popup.component.jsx";
 import ProfilePopup from "../../components/profile-popup.component.jsx";
 import Breadcrumb from "../../components/breadcrumb.component.jsx";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+
 
 function Dashboard() {
   const [isSearchPopupVisible, setIsSearchPopupVisible] = useState(false);
@@ -93,6 +99,148 @@ function Dashboard() {
   };
 
   // closeOtherPopups();
+
+  // 
+  const [data, setData] = useState({});
+
+  async function fetchUserInfo() {
+    try {
+      const response = await axios.get("/api/getUserInfo");
+      const data = response.data;
+      setData(data);
+    } catch (error) {
+      console.error("Error fetching user info:", error);
+    }
+  }
+
+  useEffect(() => {
+
+    fetchUserInfo();
+  }, []);
+
+  const [userInfo, setUserInfo] = useState({
+    username: "sultan",
+    rankings: {
+      problems: {
+        total: 50,
+        solved: 30,
+        easy: {
+          total: 20,
+          solved: 15,
+        },
+        medium: {
+          total: 20,
+          solved: 10,
+        },
+        tough: {
+          total: 10,
+          solved: 5,
+        },
+      },
+    },
+    badges: [
+      { name: "Guardian", image: "/guardian.jpeg" },
+      { name: "January", image: "/january.jpg" },
+      { name: "June", image: "/june.png" },
+      { name: "July", image: "/july.png" },
+      { name: "Knight", image: "/knight_badge.png" },
+      { name: "Soldier", image: "/soldier.png" },
+    ],
+    age: 20,
+    gender: "Male",
+    college: "IIT Bombay",
+    city: "Mumbai",
+    country: "India",
+    skills: {
+      Advanced: [
+        { name: "Dynamic Programming ", count: 1 },
+        { name: "Divide and Conquer ", count: 1 },
+      ],
+      Intermediate: [
+        { name: "Hash Table ", count: 2 },
+        { name: "Math ", count: 2 },
+        { name: "Depth-First Search ", count: 3 },
+      ],
+      Fundamental: [
+        { name: "Array ", count: 4 },
+        { name: "String ", count: 2 },
+        { name: "Sorting ", count: 1 },
+      ],
+    },
+  });
+
+  useEffect(() => {
+    renderLineChart();
+  }, []);
+
+  const renderLineChart = () => {
+    const ratingsData = [
+      1500, 1550, 1600, 1650, 1630, 1700, 1750, 1778, 1800, 1900, 2000,
+    ];
+
+    const chartData = {
+      labels: ratingsData.map((_, index) => index + 1),
+      datasets: [
+        {
+          label: "Contest Ratings",
+          data: ratingsData,
+          borderColor: "rgba(59, 130, 246, 1)",
+          tension: 0.4,
+          backgroundColor: 'rgba(59, 130, 246, 0.3)',
+          fill: true,
+        },
+      ],
+    };
+
+    const chartOptions = {
+      responsive: true,
+      aspectRatio: 1.8,
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Contest Number",
+            color: 'rgb(107, 114, 128)'
+          },
+          ticks: {
+            color: 'rgb(107, 114, 128)'
+          },
+          grid: {
+            color: "rgba(107, 114, 128, 0.3)"
+          },
+        },
+        y: {
+          title: {
+            display: true,
+            text: "Contest Rating",
+            color: 'rgb(107, 114, 128)'
+          },
+          ticks: {
+            color: 'rgb(107, 114, 128)'
+          },
+          grid: {
+            color: 'rgba(107, 114, 128, 0.3)'
+          }
+        },
+      },
+    };
+
+    const ctx = document.getElementById("contestRatingChart");
+    if (ctx) {
+      const existingChart = Chart.getChart(ctx);
+      if (existingChart) {
+        existingChart.destroy();
+      }
+
+      new Chart(ctx, {
+        type: "line",
+        data: chartData,
+        options: chartOptions,
+      });
+    }
+  };
+
+
   return (
     <div>
       {/* style={{padding:"20px 30px"}} */}
@@ -391,10 +539,10 @@ function Dashboard() {
                 {/* <!-- END: General Report --> */}
 
                 {/* <!-- BEGIN: Sales Report --> */}
-                <div className="col-span-12 mt-8 lg:col-span-6">
+                <div className="col-span-12 mt-8 lg:col-span-8">
                   <div className="intro-y block h-10 items-center sm:flex">
                     <h2 className="mr-5 truncate text-lg font-medium">
-                      Sales Report
+                      Users Report
                     </h2>
                     <div className="relative mt-3 text-slate-500 sm:ml-auto sm:mt-0">
                       <i
@@ -411,138 +559,204 @@ function Dashboard() {
                   </div>
                   <div className="intro-y box mt-12 p-5 sm:mt-5">
                     <div className="flex flex-col md:flex-row md:items-center">
-                      <div className="flex">
-                        <div>
-                          <div className="text-lg font-medium text-primary dark:text-slate-300 xl:text-xl">
-                            $15,000
-                          </div>
-                          <div className="mt-0.5 text-slate-500">
-                            This Month
-                          </div>
-                        </div>
-                        <div className="mx-4 h-12 w-px border border-r border-dashed border-slate-200 dark:border-darkmode-300 xl:mx-5"></div>
-                        <div>
-                          <div className="text-lg font-medium text-slate-500 xl:text-xl">
-                            $10,000
-                          </div>
-                          <div className="mt-0.5 text-slate-500">
-                            Last Month
-                          </div>
-                        </div>
+                      <div className="w-full bg-white shadow-xl rounded-xl p-6 hover:bg-gray-900 hover:scale-[1.03] transition-all ease-in">
+                        <canvas id="contestRatingChart"></canvas>
                       </div>
-                      <div
-                        data-tw-merge=""
-                        data-tw-placement="bottom-end"
-                        className="dropdown relative mt-5 md:ml-auto md:mt-0"
-                      >
-                        <button
-                          data-tw-merge=""
-                          data-tw-toggle="dropdown"
-                          aria-expanded="false"
-                          className="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed border-secondary text-slate-500 dark:border-darkmode-100/40 dark:text-slate-300 [&:hover:not(:disabled)]:bg-secondary/20 [&:hover:not(:disabled)]:dark:bg-darkmode-100/10 font-normal"
-                        >
-                          Filter by Category
-                          <i
-                            data-tw-merge=""
-                            data-lucide="chevron-down"
-                            className="stroke-1.5 ml-2 h-4 w-4"
-                          ></i>
-                        </button>
-                        <div
-                          data-transition=""
-                          data-selector=".show"
-                          data-enter="transition-all ease-linear duration-150"
-                          data-enter-from="absolute !mt-5 invisible opacity-0 translate-y-1"
-                          data-enter-to="!mt-1 visible opacity-100 translate-y-0"
-                          data-leave="transition-all ease-linear duration-150"
-                          data-leave-from="!mt-1 visible opacity-100 translate-y-0"
-                          data-leave-to="absolute !mt-5 invisible opacity-0 translate-y-1"
-                          className="dropdown-menu absolute z-[9999] hidden"
-                        >
-                          <div
-                            data-tw-merge=""
-                            className="dropdown-content rounded-md border-transparent bg-white p-2 shadow-[0px_3px_10px_#00000017] dark:border-transparent dark:bg-darkmode-600 h-32 w-40 overflow-y-auto"
-                          >
-                            <a
-                              className="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"
-                              href="/"
-                            >
-                              PC & Laptop
-                            </a>
-                            <a className="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item">
-                              Smartphone
-                            </a>
-                            <a className="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item">
-                              Electronic
-                            </a>
-                            <a className="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item">
-                              Photography
-                            </a>
-                            <a className="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item">
-                              Sport
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="relative before:content-[''] before:block before:absolute before:w-16 before:left-0 before:top-0 before:bottom-0 before:ml-10 before:mb-7 before:bg-gradient-to-r before:from-white before:via-white/80 before:to-transparent before:dark:from-darkmode-600 after:content-[''] after:block after:absolute after:w-16 after:right-0 after:top-0 after:bottom-0 after:mb-7 after:bg-gradient-to-l after:from-white after:via-white/80 after:to-transparent after:dark:from-darkmode-600">
-                      <SalesReport />
-                      {/* <div className="w-auto h-[275px]">
-                                                <canvas id="report-line-chart" className="chart -mb-6 mt-6"></canvas>
-                                            </div> */}
                     </div>
                   </div>
                 </div>
                 {/* <!-- END: Sales Report --> */}
 
                 {/* <!-- BEGIN: Weekly Top Seller --> */}
-                <ReportBox
-                  className="col-span-12 mt-8 sm:col-span-6 lg:col-span-3"
-                  title="Weekly Top Seller"
-                  linkText="Show More"
-                  reportComponent={WeeklyTop}
-                />
+
+                <div className="col-span-12 mt-8 sm:col-span-6 lg:col-span-4 w-full bg-white rounded-xl shadow-xl px-4 py-4 flex flex-col gap-2 group hover:bg-gray-900 transition-all ease-in hover:scale-[1.03]">
+                  <h2 className="text-2xl font-semibold text-gray-800 group-hover:text-white transition-all ease-in">
+                    {data.name}
+                  </h2>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-gray-200 transition-all ease-in">
+                    Additional Info
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <div className="font-medium min-w-24 text-gray-700 group-hover:text-gray-400 transition-all ease-in">Age:</div>
+                    <div className="text-gray-700 group-hover:text-gray-300 transition-all ease-in">{data.age}</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="font-medium min-w-24 text-gray-700 group-hover:text-gray-400 transition-all ease-in">Gender:</div>
+                    <div className="text-gray-700 group-hover:text-gray-300 transition-all ease-in">{data.gender}</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="font-medium min-w-24 text-gray-700 group-hover:text-gray-400 transition-all ease-in">College:</div>
+                    <div className="text-gray-700 group-hover:text-gray-300 transition-all ease-in">{data.college}</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="font-medium min-w-24 text-gray-700 group-hover:text-gray-400 transition-all ease-in">City:</div>
+                    <div className="text-gray-700 group-hover:text-gray-300 transition-all ease-in">{data.city}</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="font-medium min-w-24 text-gray-700 group-hover:text-gray-400 transition-all ease-in">Country:</div>
+                    <div className="text-gray-700 group-hover:text-gray-300 transition-all ease-in">{data.country}</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="font-medium min-w-24 text-gray-700 group-hover:text-gray-400 transition-all ease-in">Rating:</div>
+                    <div className="text-gray-700 group-hover:text-gray-300 transition-all ease-in">{data.rating}</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="font-medium min-w-24 text-gray-700 group-hover:text-gray-400 transition-all ease-in">Amount:</div>
+                    <div className="text-gray-700 group-hover:text-gray-300 transition-all ease-in">{data.amount}</div>
+                  </div>
+                  <Link to="/edit-profile" className="mt-2 bg-dark-1 group-hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-xl text-center transition-all ease-in">
+        Edit Profile
+      </Link>
+                  <Link to="/login" className="bg-red-500 group-hover:bg-red-500 text-white font-bold py-2 px-4 rounded-xl text-center transition-all ease-in">
+                    Logout
+                  </Link>
+                </div>
                 {/* <!-- END: Weekly Top Seller --> */}
 
-                {/* <!-- BEGIN: Sales Report --> */}
-                <ReportBox
-                  className="col-span-12 mt-8 sm:col-span-6 lg:col-span-3"
-                  title="Sales Report"
-                  linkText="Show More"
-                  reportComponent={SalesReport2}
-                  reportComponentHeight={200}
-                />
-                {/* <!-- END: Sales Report -->
+                {/* <!-- BEGIN: Official Store --> */}
 
-                                {/* <!-- BEGIN: Official Store --> */}
                 <div className="col-span-12 mt-6 xl:col-span-8">
                   <div className="intro-y block h-10 items-center sm:flex">
                     <h2 className="mr-5 truncate text-lg font-medium">
-                      Official Store
+                      User Progress
                     </h2>
-                    <div className="relative mt-3 text-slate-500 sm:ml-auto sm:mt-0">
-                      <i
-                        data-tw-merge=""
-                        data-lucide="map-pin"
-                        className="stroke-1.5 absolute inset-y-0 left-0 z-10 my-auto ml-3 h-4 w-4"
-                      ></i>
-                      <input
-                        data-tw-merge=""
-                        type="text"
-                        placeholder="Filter by city"
-                        className="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 !box pl-10 sm:w-56"
-                      />
-                    </div>
+
                   </div>
                   <div className="intro-y box mt-12 p-5 sm:mt-5">
-                    <div>
-                      250 Official stores in 21 countries, click the marker to
-                      see location details.
+                    <div className="w-full bg-light-2 shadow-xl rounded-xl p-6 hover:bg-gray-900 group hover:scale-[1.03] transition-all ease-in">
+                      <h2 className="mb-5 text-gray-800 group-hover:text-white transition-all ease-in">Solved Problems</h2>
+                      <div className="flex gap-8 items-center w-full mb-5 max-sm:flex-col max-sm:items-start">
+
+                        <div className=" bg-slate-200 rounded-full min-h-[100px] min-w-[100px] flex justify-center items-center">
+                          <div className="bg-white rounded-full min-h-[85px] min-w-[85px] flex flex-col justify-center items-center">
+                            <h1 className="font-medium text-gray-800 group-hover:text-black transition-all ease-in">490</h1>
+                            <p className="text-gray-700 group-hover:text-black transition-all ease-in">Solved</p>
+                          </div>
+                        </div>
+
+                        <div className="flex-grow w-full">
+                          <div className="flex items-center flex-grow mb-2">
+                            <div className="w-20 mr-2 text-gray-700 group-hover:text-gray-300 transition-all ease-in">Easy:</div>
+                            <div className="flex bg-gray-200 h-4 rounded-full flex-grow">
+                              <div
+                                className="bg-green-500 h-full rounded-full"
+                                style={{
+                                  width: `${(userInfo.rankings.problems.easy.solved /
+                                    userInfo.rankings.problems.easy.total) *
+                                    100
+                                    }%`,
+                                }}
+                              />
+                            </div>
+                          </div>
+
+                          <div className="flex items-center mb-2">
+                            <div className="w-20 mr-2 text-gray-700 group-hover:text-gray-300 transition-all ease-in">Medium:</div>
+                            <div className="flex bg-gray-200 h-4 rounded-full flex-grow">
+                              <div
+                                className="bg-yellow-500 h-full rounded-full"
+                                style={{
+                                  width: `${(userInfo.rankings.problems.medium.solved /
+                                    userInfo.rankings.problems.medium.total) *
+                                    100
+                                    }%`,
+                                }}
+                              />
+                            </div>
+                          </div>
+
+                          <div className="flex items-center mb-2">
+                            <div className="w-20 mr-2 text-gray-700 group-hover:text-gray-300 transition-all ease-in">Tough:</div>
+                            <div className="flex bg-gray-200 h-4 rounded-full flex-grow">
+                              <div
+                                className="bg-red-500 h-full rounded-full"
+                                style={{
+                                  width: `${(userInfo.rankings.problems.tough.solved /
+                                    userInfo.rankings.problems.tough.total) *
+                                    100
+                                    }%`,
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    {/* <div data-lat="-6.2425342" data-long="106.8626478" data-sources="" data-api-key="1e86fd5a7f60486a8e899411776f60d5" className="leaflet z-0 [&_.leaflet-tile-pane]:saturate-[.3] mt-5 h-[310px] rounded-md bg-slate-200">
-                                        </div> */}
-                    <OfficialStoresMap />
                   </div>
+
+
+
+                  {/* <div className="col-span-12 mt-6 xl:col-span-8">
+                    <div className="intro-y box mt-12 p-5 sm:mt-5">
+
+                      <div className="flex justify-between">
+                        <div className="flex-grow max-w-full bg-light-2 shadow-xl rounded-xl p-6 hover:bg-dark-1 transition-all ease-in hover:scale-[1.03] group">
+                          <h3 className="text-lg font-semibold mb-2 group-hover:text-white">
+                            Badges
+                          </h3>
+                          <Carousel
+                            additionalTransfrom={0}
+                            arrows
+                            autoPlaySpeed={3000}
+                            centerMode={true}
+                            containerClass="carousel-container"
+                            draggable
+                            focusOnSelect={false}
+                            infinite
+                            keyBoardControl
+                            minimumTouchDrag={80}
+                            renderButtonGroupOutside={true}
+                            renderDotsOutside={false}
+                            responsive={{
+                              desktop: {
+                                breakpoint: {
+                                  max: 3000,
+                                  min: 1024,
+                                },
+                                items: 2,
+                                partialVisibilityGutter: 40,
+                              },
+                              mobile: {
+                                breakpoint: {
+                                  max: 464,
+                                  min: 0,
+                                },
+                                items: 1,
+                                partialVisibilityGutter: 30,
+                              },
+                              tablet: {
+                                breakpoint: {
+                                  max: 1024,
+                                  min: 464,
+                                },
+                                items: 2,
+                                partialVisibilityGutter: 30,
+                              },
+                            }}
+                            showDots={false}
+                            slidesToSlide={1}
+                            swipeable
+                          >
+                            {userInfo.badges.map((badge, index) => (
+                              <div
+                                key={index}
+                                className="flex justify-center items-center h-40 gap-10"
+                              >
+                                <img
+                                  src={badge.image}
+                                  alt={badge.name}
+                                  className="w-32 h-32 object-contain rounded-full my-auto"
+                                />
+                              </div>
+                            ))}
+                          </Carousel>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div> */}
+
+
                 </div>
                 {/* <!-- END: Official Store --> */}
 
@@ -550,48 +764,27 @@ function Dashboard() {
                 <div className="col-span-12 mt-6 xl:col-span-4">
                   <div className="intro-y flex h-10 items-center">
                     <h2 className="mr-5 truncate text-lg font-medium">
-                      Weekly Best Sellers
+                      Solved Question
                     </h2>
                   </div>
                   <div className="mt-5">
-                    <WeeklyBestSellersCard
-                      name="Kevin Spacey"
-                      imgUrl={profile9}
-                      alt="Midone - Tailwind Admin Dashboard Template"
-                      date="7 March 2022"
-                      sales="137 Sales"
-                    />
-
-                    <WeeklyBestSellersCard
-                      name="Al Pacino"
-                      imgUrl={profile5}
-                      alt="Midone - Tailwind Admin Dashboard Template"
-                      date="21 July 2022"
-                      sales="137 Sales"
-                    />
-
-                    <WeeklyBestSellersCard
-                      name="Robert De Niro"
-                      imgUrl={profile11}
-                      alt="Midone - Tailwind Admin Dashboard Template"
-                      date="19 November 2021"
-                      sales="137 Sales"
-                    />
-
-                    <WeeklyBestSellersCard
-                      name="Russell Crowe"
-                      imgUrl={profile3}
-                      alt="Midone - Tailwind Admin Dashboard Template"
-                      date="6 September 2021"
-                      sales="137 Sales"
-                    />
-
-                    <a
-                      className="intro-y block w-full rounded-md border border-dotted border-slate-400 py-4 text-center text-slate-500 dark:border-darkmode-300"
-                      href="#"
-                    >
-                      View More
-                    </a>
+                    <div className="w-full bg-white rounded-xl shadow-xl px-4 py-4 flex flex-col gap-2 group hover:bg-gray-900 transition-all ease-in hover:scale-[1.03]">
+                      <h3 className="text-lg font-semibold text-dark-1 group-hover:text-white mb-2">Skills</h3>
+                      {Object.entries(userInfo.skills).map(([category, skills]) => (
+                        <div key={category} className="mb-4">
+                          <h4 className="text-md font-semibold text-dark-3 group-hover:text-gray-300 mb-2">
+                            {category}
+                          </h4>
+                          <ul className="list-disc list-inside">
+                            {skills.map((skill, index) => (
+                              <li key={index} className="text-gray-700 group-hover:text-gray-400">
+                                {skill.name} ⨯{skill.count}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
                 {/* <!-- END: Weekly Best Sellers --> */}
