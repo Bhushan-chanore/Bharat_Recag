@@ -82,7 +82,7 @@ export default function Team() {
                       <a href="/">Application</a>
                     </li>
                     <li className="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white text-slate-800 cursor-text dark:text-slate-400">
-                      <a href="/model">Model</a>
+                      <a href="/model">Team</a>
                     </li>
                   </ol>
                 </div>
@@ -234,7 +234,9 @@ export default function Team() {
               <div className="team-title">
                 <h3 className="main">Meet Our Team</h3>
               </div>
-              <div className="team-data grid-team">
+
+
+              {/* <div className="team-data grid-team">
                 <div className="member first">
                   <a href="#">
                     <img src={img1} alt="team-logo" />
@@ -379,7 +381,7 @@ export default function Team() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>

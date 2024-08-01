@@ -141,7 +141,7 @@ function App() {
           </div>
           {/* <!-- END: Top Bar --> */}
 
-          <div className="h-[90%] flex justify-center items-center ">
+          <div className="relative h-[90%] flex justify-center top-[20rem]">
           <h1 className='text-[2rem] font-bold'>Launching Soon !!!</h1>
           </div>
         </div>
