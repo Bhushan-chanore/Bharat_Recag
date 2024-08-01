@@ -37,10 +37,12 @@ import Professional from "./pages/Competitionpage/interview/professional/page.js
 import Room from "./pages/Competitionpage/interview/professional/Room.js"
 import SocketWrapper from "./pages/Competitionpage/interview/professional/SocketWraper.js";
 
-
+import HostModel from "./pages/Host-Model/HostModel.jsx"
 import Meeting from "./pages/Competitionpage/component/interview/Meeting.js"
 // import Start from "./pages/Competitionpage/interview/peer-graded/start/page.js"
 import Peergrade from "./pages/Competitionpage/interview/peer-graded/page.js"
+import Resetpassword from './pages/Dashboard/Resetpassword.jsx';
+import EditProfile from './pages/Dashboard/EditProfile.jsx';
 function App() {
   return (
     <div className="App">
@@ -58,8 +60,7 @@ function App() {
               <Route path="/courses" element={<Learn />} />
 
               <Route path="/competition" element={<Competitions />} />
-              <Route path='/competition/interview' element={<Interview/>}/>
-
+              
 
               <Route path='/competition/interview/meeting' element={<Meeting/>}/>
               <Route path="/competition/:contestId" element={<Page />} />
@@ -67,14 +68,15 @@ function App() {
               <Route path="/competition/:contestId/:problemId" element={<ProblemPage />} /> 
               {/* Dynamic Route for Problem Page */}
 
-              <Route path='/competition/interview/professional' element={<Professional/>}/>
-              <Route path='/competition/interview/professional/room/:roomId' element={<SocketWrapper><Room/></SocketWrapper>}/>
 
 
-              <Route path='/competition/interview/peer-graded' element={<Peergrade/>}/>
+              {/* <Route path='/competition/interview/peer-graded' element={<Peergrade/>}/> */}
               {/* <Route path='/competition/interview/peer-graded/start' element={<Start/>}/> */}
 
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/update-profile" element={<EditProfile />} />
+
+
               <Route path="/blog" element={<Blog />} />
               <Route path="/host-competition" element={<Hostcomp />} />
 
@@ -86,8 +88,20 @@ function App() {
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/rankings" element={<Ranking />} />
               <Route path="/team" element={<Team />} />
+
+
+              <Route path='/interview' element={<Interview/>}/>
+              <Route path='/interview/peer-graded' element={<Peergrade/>}/>
+              <Route path='/interview/professional' element={<Professional/>}/>
+              <Route path='/interview/professional/room/:roomId' element={<SocketWrapper><Room/></SocketWrapper>}/>
+
+              <Route path='/host-model' element={<HostModel/>}/>
+
+
               <Route path="/login" element={<Login />} />
               <Route path="/sign-up" element={<Signup />} />
+              <Route path="/dashboard/forgetpassword" element={<Resetpassword />} />
+
             </Routes>
           </BrowserRouter>
         </QuestionsProvider>

@@ -1,16 +1,15 @@
 
 import React, { useState } from 'react';
-import JoinRoom from './JoinRoom';
-import Mobilemenu from '../../../Dashboard/Mobilemenu';
-import Simplemenu from '../../../Dashboard/Simplemenu';
+import Mobilemenu from '../Dashboard/Mobilemenu';
+import Simplemenu from '../Dashboard/Simplemenu';
 import { Link } from 'react-router-dom';
 
-import ProfilePopup from '../../../../components/profile-popup.component';
-import NotificationPopup from '../../../../components/notification-popup.component';
+import ProfilePopup from '../../components/profile-popup.component';
+import NotificationPopup from '../../components/notification-popup.component';
 import { BellRing, Search } from 'lucide-react';
-import SearchPopup from '../../../../components/search-popup.component';
+import SearchPopup from '../../components/search-popup.component';
 // import Breadcrumb from '../../../components/breadcrumb.component';
-import profile4 from "../../../image/fakers/profile-4.jpg";
+import profile4 from "../image/fakers/profile-4.jpg";
 
 function App() {
 
@@ -67,11 +66,9 @@ function App() {
                   <a href="/">Application</a>
                 </li>
                 <li className="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white text-slate-800 cursor-text dark:text-slate-400">
-                  <a href="/interview">Interview</a>
+                  <a href="/host-model">Host-Model</a>
                 </li>
-                <li className="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white text-slate-800 cursor-text dark:text-slate-400">
-                  <a href="/interview/professional">Professional</a>
-                </li>
+                
               </ol>
             </div>
             {/* <!-- BEGIN: Search --> */}
@@ -145,8 +142,7 @@ function App() {
           {/* <!-- END: Top Bar --> */}
 
           <div className="h-[90%] flex justify-center items-center ">
-
-            <JoinRoom />
+          <h1 className='text-[2rem] font-bold'>Launching Soon !!!</h1>
           </div>
         </div>
       </div>

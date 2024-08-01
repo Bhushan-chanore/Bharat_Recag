@@ -45,15 +45,7 @@ import Mobilemenu from "./Mobilemenu.jsx";
 import Simplemenu from "./Simplemenu.jsx";
 import "./dashb.css";
 import Chart from "chart.js/auto";
-import Carousel from "react-multi-carousel";
 
-import SalesReport from "../../components/sales-report.component.jsx";
-import ReportBox from "../../components/report-box.component.jsx";
-import WeeklyTop from "../../components/weekly-top.component.jsx";
-import SalesReport2 from "../../components/sales-report2.component.jsx";
-
-import OfficialStoresMap from "../../components/official-stores-map.component.jsx";
-import WeeklyBestSellersCard from "../../components/weekly-best-sellers-card.component.jsx";
 
 import GeneralReportCard1 from "../../components/general-report-card1.component.jsx";
 import GeneralReportCard2 from "../../components/general-report-card2.component.jsx";
@@ -538,7 +530,8 @@ function Dashboard() {
                 </div>
                 {/* <!-- END: General Report --> */}
 
-                {/* <!-- BEGIN: Sales Report --> */}
+
+                {/* <!-- BEGIN: user Report --> */}
                 <div className="col-span-12 mt-8 lg:col-span-8">
                   <div className="intro-y block h-10 items-center sm:flex">
                     <h2 className="mr-5 truncate text-lg font-medium">
@@ -565,13 +558,15 @@ function Dashboard() {
                     </div>
                   </div>
                 </div>
-                {/* <!-- END: Sales Report --> */}
+                {/* <!-- END: user Report --> */}
+
 
                 {/* <!-- BEGIN: Weekly Top Seller --> */}
 
                 <div className="col-span-12 mt-8 sm:col-span-6 lg:col-span-4 w-full bg-white rounded-xl shadow-xl px-4 py-4 flex flex-col gap-2 group hover:bg-gray-900 transition-all ease-in hover:scale-[1.03]">
                   <h2 className="text-2xl font-semibold text-gray-800 group-hover:text-white transition-all ease-in">
-                    {data.name}
+                    {/* {data.name} */}
+                    John Wik
                   </h2>
                   <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-gray-200 transition-all ease-in">
                     Additional Info
@@ -604,14 +599,18 @@ function Dashboard() {
                     <div className="font-medium min-w-24 text-gray-700 group-hover:text-gray-400 transition-all ease-in">Amount:</div>
                     <div className="text-gray-700 group-hover:text-gray-300 transition-all ease-in">{data.amount}</div>
                   </div>
-                  <Link to="/edit-profile" className="mt-2 bg-dark-1 group-hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-xl text-center transition-all ease-in">
-        Edit Profile
-      </Link>
-                  <Link to="/login" className="bg-red-500 group-hover:bg-red-500 text-white font-bold py-2 px-4 rounded-xl text-center transition-all ease-in">
-                    Logout
+                  
+                  <Link to="/dashboard/update-profile" className="bg-red-500 group-hover:bg-red-500 text-white font-bold py-2 px-4 rounded-xl text-center transition-all ease-in mt-4">
+                    Edit Profile
+                  </Link>
+
+                  <Link to="/dashboard/forgetpassword" className="bg-red-500 group-hover:bg-red-500 text-white font-bold py-2 px-4 rounded-xl text-center transition-all ease-in mt-4">
+                    Reset Password
                   </Link>
                 </div>
                 {/* <!-- END: Weekly Top Seller --> */}
+
+
 
                 {/* <!-- BEGIN: Official Store --> */}
 

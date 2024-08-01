@@ -24,7 +24,7 @@ export default function JoinRoom() {
 
         // Navigate if username is provided
         if (username) {
-            navigate(`/competition/interview/professional/room/${roomId}?username=${username}`);
+            navigate(`/interview/professional/room/${roomId}?username=${username}`);
         } else {
             toast.error("Please enter a username");
             setJoining(false);

@@ -225,6 +225,10 @@ export default function Datasets() {
     setSearchBarActive(false);
   };
 
+  // for login button 
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
+
+
   return (
     <div>
       <Mobilemenu />
