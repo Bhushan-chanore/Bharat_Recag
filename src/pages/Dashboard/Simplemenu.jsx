@@ -63,7 +63,7 @@ const Simplemenu = () => {
   return (
     <div
       className={`bg-darkblue-500 ${
-        isSidebarCollapsed ? "w-20" : "w-[14.4rem]"
+        isSidebarCollapsed ? "w-20" : "w-0 sm:w-[14.4rem]"
       } transition-width duration-300`}
     >
       <div className="side-nav side-nav--simple flex flex-col h-full">

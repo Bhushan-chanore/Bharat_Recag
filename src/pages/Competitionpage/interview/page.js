@@ -251,7 +251,7 @@ const Page = () => {
               </div>
             </div>
 
-            <div className='flex'>
+            <div className='flex flex-wrap'>
               <div className='mb-3 justify-start m-1 p-[2rem] items-start w-[350px]' style={{ border: "1px solid black", borderRadius: "20px" }}>
                 <h1 className='font-medium mb-1 text-[1.1rem]'>Past Interviews</h1>
                 <div className='w-full flex gap-10 flex-wrap'>
