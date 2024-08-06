@@ -2808,14 +2808,14 @@ html body {
 html,
 :host {
     line-height: 1.5;
-    -webkit-text-size-adjust: 100%;
+    /* -webkit-text-size-adjust: 100%; */
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
     font-feature-settings: normal;
     font-variation-settings: normal;
-    -webkit-tap-highlight-color: transparent
+    /* -webkit-tap-highlight-color: transparent */
 }
 
 body {
@@ -2916,6 +2916,7 @@ button,
 [type=reset],
 [type=submit] {
     -webkit-appearance: button;
+    appearance: button;
     /* background-color: transparent; */
     background-image: none
 }
@@ -2939,6 +2940,7 @@ progress {
 
 [type=search] {
     -webkit-appearance: textfield;
+    appearance: textfield;
     outline-offset: -2px
 }
 
@@ -3025,8 +3027,8 @@ audio,
 iframe,
 embed,
 object {
+    /* vertical-align: middle; */
     display: block;
-    vertical-align: middle
 }
 
 img,
@@ -3629,12 +3631,13 @@ select {
 }
 
 .sticky {
-    position: sticky
+    position: -webkit-sticky;
+    position: sticky;
 }
 
-.inset-0 {
+/* .inset-0 {
     inset: 0
-}
+} */
 
 .inset-x-0 {
     left: 0;
@@ -6043,9 +6046,9 @@ select {
     text-decoration-style: dotted
 }
 
-.underline-offset-4 {
+/* .underline-offset-4 {
     text-underline-offset: 4px
-}
+} */
 
 .opacity-0 {
     opacity: 0
@@ -6234,7 +6237,7 @@ select {
 
 .before\:inset-0:before {
     content: var(--tw-content);
-    inset: 0
+    /* inset: 0 */
 }
 
 .before\:inset-x-0:before {
@@ -6792,7 +6795,7 @@ select {
 
 .after\:inset-0:after {
     content: var(--tw-content);
-    inset: 0
+    /* inset: 0 */
 }
 
 .after\:inset-y-0:after {
@@ -8691,7 +8694,8 @@ select {
     }
 
     .xl\:sticky {
-        position: sticky
+        position: -webkit-sticky;
+        position: sticky;
     }
 
     .xl\:z-auto {
