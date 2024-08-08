@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React, {  useState } from 'react';
 import Mobilemenu from './Mobilemenu';
 import Simplemenu from './Simplemenu';
 import Breadcrumb from '../../components/breadcrumb.component';

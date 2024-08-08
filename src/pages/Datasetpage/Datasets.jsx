@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./Datasets.css";
 import { MdOutlineInsights } from "react-icons/md";
 import img1 from "../../assets/dataset-img1.svg";
@@ -6,10 +6,6 @@ import img2 from "../../assets/dataset-img2.jpg";
 import img3 from "../../assets/dataset-img3.png";
 import img4 from "../../assets/dataset-img4.png";
 import img5 from "../../assets/dataset-img5.jpg";
-import img6 from "../../assets/exercisedataset-img1.png";
-import img7 from "../../assets/exercisedataset-img2.jpg";
-import img8 from "../../assets/exercisedataset-img4.jpeg";
-
 
 import { Cards } from "../Cards";
 import profile4 from "../image/fakers/profile-4.jpg";

@@ -17,11 +17,9 @@ import profile4 from "../image/fakers/profile-4.jpg";
 import {
   BellRing,
   HeartHandshake,
-  Dot,
   Eye,
   LibraryBig,
   MessageCircle,
-  Search,
   SquareMousePointer,
   ThumbsUp,
 } from "lucide-react";

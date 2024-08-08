@@ -1,18 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./Models.css";
 import { MdOutlineInsights } from "react-icons/md";
 import img1 from "../../assets/model-img1.svg";
-import img2 from "../../assets/cardimg-audio.svg";
-import img3 from "../../assets/cardimg-pose.svg";
-import img4 from "../../assets/cardimg-resolution.svg";
-import img5 from "../../assets/cardimg-processing.svg";
-import img6 from "../../assets/cardimg-detection.svg";
-import img7 from "../../assets/cardimg-other.svg";
-import img8 from "../../assets/cardimg-generation.svg";
-import { SearchBar } from "../SearchBar";
+
 import { ImagelessCard } from "../ImagelessCard";
-import { AnimatedCard } from "../AnimatedCard";
-import { AppContext } from "../context/context";
+
 
 import "../css/vendors/tippy.css";
 import "../css/vendors/litepicker.css";

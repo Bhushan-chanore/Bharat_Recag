@@ -1,13 +1,5 @@
 import React, { useState } from "react";
 import "./Team.css";
-import img1 from "../../assets/member-1.jpg";
-import img2 from "../../assets/member-2.jpg";
-import img3 from "../../assets/member-3.jpg";
-import img4 from "../../assets/member-4.jpg";
-import img5 from "../../assets/member-5.jpg";
-import img6 from "../../assets/member-6.jpg";
-import img7 from "../../assets/member-7.jpg";
-import img8 from "../../assets/member-8.jpg";
 import Mobilemenu from "../Dashboard/Mobilemenu";
 import Simplemenu from "../Dashboard/Simplemenu";
 import { BellRing } from "lucide-react";

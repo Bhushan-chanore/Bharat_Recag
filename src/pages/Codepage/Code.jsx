@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./Code.css";
 
 import img1 from "../../assets/code-img1.svg";

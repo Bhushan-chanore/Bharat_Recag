@@ -2,13 +2,11 @@
 import React, { useState } from 'react';
 import Mobilemenu from '../Dashboard/Mobilemenu';
 import Simplemenu from '../Dashboard/Simplemenu';
-import { Link } from 'react-router-dom';
 
 import ProfilePopup from '../../components/profile-popup.component';
 import NotificationPopup from '../../components/notification-popup.component';
 import { BellRing, Search } from 'lucide-react';
 import SearchPopup from '../../components/search-popup.component';
-// import Breadcrumb from '../../../components/breadcrumb.component';
 import profile4 from "../image/fakers/profile-4.jpg";
 
 function App() {

@@ -25,7 +25,7 @@ import "../css/components/mobile-menu.css";
 import Mobilemenu from "../Dashboard/Mobilemenu";
 import Simplemenu from "../Dashboard/Simplemenu";
 import profile4 from "../image/fakers/profile-4.jpg";
-import { BellRing, Search } from "lucide-react";
+import { BellRing } from "lucide-react";
 import NotificationPopup from "../../components/notification-popup.component";
 import ProfilePopup from "../../components/profile-popup.component";
 
